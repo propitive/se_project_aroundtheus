@@ -1,0 +1,15 @@
+.avatar {
+  grid-column-start: 1;
+}
+
+.avatar__jacques-cousteau {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar__picture {
+  border-radius: 50%;
+}
