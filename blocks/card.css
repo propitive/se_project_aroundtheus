@@ -1,4 +1,11 @@
 .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__image {
+  width: 282px;
+  height: 282px;
 }
 
 .card__description {
@@ -15,4 +22,7 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
+}
+
+.card__like-button {
 }

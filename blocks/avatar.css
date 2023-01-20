@@ -1,5 +1,6 @@
 .avatar {
   grid-column-start: 1;
+  grid-area: avatar;
 }
 
 .avatar__jacques-cousteau {
@@ -12,4 +13,10 @@
 
 .avatar__picture {
   border-radius: 50%;
+}
+
+@media screen and (max-width: 1014px) {
+  .avatar {
+    grid-area: avatar;
+  }
 }
