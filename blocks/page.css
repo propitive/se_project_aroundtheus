@@ -11,35 +11,3 @@
   display: flex;
   flex-direction: column;
 }
-
-/* .page__selection {
-  max-width: 880px;
-  box-sizing: border-box;
-  position: relative;
-  margin-right: auto;
-  margin-left: auto;
-} */
-
-/*@media screen and (max-width: 1280px) {
-  .page__selection {
-    margin-right: 200px;
-    margin-left: 200px;
-    max-width: calc(100% - 400px);
-  }
-} */
-
-/* @media screen and (max-width: 800px) {
-  .page__selection {
-    margin-right: 25px;
-    margin-left: 25px;
-    max-width: calc(100% - 50px);
-  }
-} */
-
-/* @media screen and (max-width: 613px) {
-  .page__selection {
-    margin-right: 0;
-    margin-left: 0;
-    max-width: calc(100% - 20px);
-  }
-} */

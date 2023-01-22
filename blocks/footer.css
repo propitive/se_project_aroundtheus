@@ -17,13 +17,6 @@
   }
 }
 
-/* @media screen and (max-width: 1291px) {
-  .footer {
-    width: 582px;
-    height: 16px;
-  }
-} */
-
 @media screen and (max-width: 1258px) {
   .footer {
     width: 582px;

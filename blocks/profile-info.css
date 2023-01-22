@@ -61,46 +61,6 @@
   text-align: left;
 }
 
-/* .profile__add-button {
-  grid-column-start: 6;
-  display: flex;
-  align-content: center;
-  flex-wrap: wrap;
-}
-
-.profile__add-button__button {
-  width: 100%;
-  height: 42%;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-content: center;
-  padding: 0;
-  border: 2px solid #ffffff;
-  border-radius: 2px;
-}
-
-.profile__add-button__image {
-  background-repeat: no-repeat;
-  width: 15%;
-} */
-
-/* @media screen and (max-width: 1182.7px) {
-  .profile-info__jacques-cousteau {
-    margin: 0;
-    padding: 0;
-    height: 51%;
-    color: white;
-    font-family: "Inter";
-    font-size: 42px;
-    font-weight: 500;
-    line-height: 1.14;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-} */
-
 @media screen and (max-width: 777px) {
   .profile-info {
     grid-area: profile-info;

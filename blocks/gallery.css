@@ -51,29 +51,3 @@
     padding: 0;
   }
 }
-
-/* @media screen and (max-width: 800px) {
-  .gallery {
-    margin-right: 10px;
-    margin-left: 10px;
-    max-width: 100%;
-  }
-} */
-
-/* @media screen and (max-width: 912.5px) {
-  .gallery__cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, max-content));
-    justify-content: center;
-    grid-gap: 20px 18px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-} */
-
-/* @media screen and (max-width: 586px) {
-  .gallery__cards {
-    padding: 15px 0 18px;
-  }
-} */
