@@ -29,12 +29,17 @@
   }
 }
 
-@media screen and (max-width: 613px) {
+@media screen and (max-width: 777px) {
   .profile-add-button {
     justify-content: center;
+    margin-top: 36px;
+    margin-bottom: 36px;
   }
   .profile-add-button__button {
+    justify-content: center;
     width: 282px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .profile-add-button__image {
     width: 16px;

@@ -11,7 +11,15 @@
     max-width: 880px;
     margin-right: auto;
     margin-left: auto;
-    max-width: calc(100% - 400px);
+    margin-bottom: 47.5px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .profile {
+    margin-right: 10px;
+    margin-left: 10px;
+    max-width: 100%;
   }
 }
 
@@ -28,7 +36,7 @@
   }
 } */
 
-@media screen and (max-width: 613px) {
+@media screen and (max-width: 777px) {
   .profile {
     display: flex;
     flex-direction: column;

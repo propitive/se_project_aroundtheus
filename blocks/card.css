@@ -25,4 +25,13 @@
 }
 
 .card__like-button {
+  background: white;
+  border: none;
+  display: flex;
+  padding: 0;
+}
+
+.card__button {
+  width: 21px;
+  height: 18px;
 }

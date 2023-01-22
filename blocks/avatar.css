@@ -20,3 +20,9 @@
     grid-area: avatar;
   }
 }
+
+@media screen and (max-width: 777px) {
+  .avatar {
+    margin-top: 38.5px;
+  }
+}

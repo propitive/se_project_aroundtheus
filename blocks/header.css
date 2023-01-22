@@ -1,6 +1,5 @@
 .header {
   border-bottom: 1px solid rgb(84, 84, 84, 0.7);
-  height: 74px;
   margin-top: 45px;
 }
 
@@ -12,14 +11,52 @@
     max-width: 880px;
     margin-right: auto;
     margin-left: auto;
-    max-width: calc(100% - 400px);
+    height: 74px;
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1258px) {
   .header {
     margin-right: 25px;
     margin-left: 25px;
     max-width: 100%;
+    height: 74px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    margin-right: 10px;
+    margin-left: 10px;
+    max-width: 100%;
+    height: 74px;
+  }
+}
+
+/* @media screen and (min-width: 776px) and (max-width: 777px) { 
+  .header {
+    padding-top: 28px;
+    padding-left: 27px;
+    padding-bottom: 32px;
+    height: 24px;
+    margin: 0;
+  }
+  .header__logo {
+    width: 126px;
+    height: 24px;
+  }
+} */
+
+@media screen and (max-width: 778px) {
+  .header {
+    padding-top: 28px;
+    padding-left: 27px;
+    padding-bottom: 32px;
+    height: 24px;
+    margin: 0;
+  }
+  .header__logo {
+    width: 126px;
+    height: 24px;
   }
 }
