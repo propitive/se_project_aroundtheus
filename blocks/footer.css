@@ -2,7 +2,7 @@
   margin: 67px 0 0;
   padding: 0;
   color: #545454;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -20,7 +20,6 @@
 @media screen and (max-width: 1258px) {
   .footer {
     width: 582px;
-    height: 16px;
     margin-bottom: 36px;
   }
 }
@@ -28,11 +27,10 @@
 @media screen and (max-width: 777px) {
   .footer {
     width: 282px;
-    height: 14px;
     margin: 0 auto 36px;
   }
   .footer__copyright {
-    font-family: "Inter";
+    font-family: "Inter", Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

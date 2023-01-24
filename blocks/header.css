@@ -11,7 +11,6 @@
     max-width: 880px;
     margin-right: auto;
     margin-left: auto;
-    height: 74px;
   }
 }
 
@@ -20,7 +19,6 @@
     margin-right: 25px;
     margin-left: 25px;
     max-width: 100%;
-    height: 74px;
   }
 }
 
@@ -29,7 +27,6 @@
     margin-right: 10px;
     margin-left: 10px;
     max-width: 100%;
-    height: 74px;
   }
 }
 
@@ -38,7 +35,6 @@
     padding-top: 28px;
     padding-left: 27px;
     padding-bottom: 32px;
-    height: 24px;
     margin: 0;
   }
   .header__logo {

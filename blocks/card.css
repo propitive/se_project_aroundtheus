@@ -22,10 +22,15 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .card__like-button {
-  background: white;
+  background: transparent;
   border: none;
   display: flex;
   padding: 0;

@@ -10,12 +10,6 @@
 }
 
 .gallery__cards {
-  /*  display: grid;
-  grid-template-columns: repeat(auto-fit, 280px);
-  grid-gap: 20px 18px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, max-content));
   justify-content: center;
