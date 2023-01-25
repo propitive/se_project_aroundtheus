@@ -1,12 +1,11 @@
 .gallery {
-  width: 100%;
+  width: 880px;
   max-width: calc(100% - 400px);
   box-sizing: border-box;
   position: relative;
   margin-right: auto;
   margin-left: auto;
   font-family: "Inter", Arial, sans-serif;
-  padding: 15px 0 36px;
 }
 
 .gallery__cards {
@@ -22,26 +21,24 @@
 @media screen and (max-width: 2000px) {
   .gallery {
     max-width: 880px;
-    margin-right: auto;
-    margin-left: auto;
     padding: 0;
   }
 }
 
 @media screen and (max-width: 1258px) {
   .gallery {
-    margin-right: auto;
-    margin-left: auto;
     max-width: calc(100% - 400px);
-    padding: 0;
   }
 }
 
 @media screen and (max-width: 1070px) {
   .gallery {
-    margin-right: auto;
-    margin-left: auto;
     max-width: calc(100% - 200px);
-    padding: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gallery {
+    max-width: calc(100% - 38px);
   }
 }

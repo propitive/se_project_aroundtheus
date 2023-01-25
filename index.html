@@ -12,27 +12,24 @@
   </head>
   <body class="page">
     <div class="page__content">
+      <header class="header">
+        <img
+          src="./images/AroundTheUS-Logo.svg"
+          alt="Around The U.S Logo"
+          class="header__logo"
+        />
+      </header>
+
       <main class="content">
-        <section class="header">
-          <img
-            src="./images/AroundTheUS-Logo.svg"
-            alt="Around The U.S Logo"
-            class="header__logo"
-          />
-        </section>
         <section class="profile">
-          <div class="avatar">
-            <figure class="avatar__jacques-cousteau">
-              <img
-                src="./images/jacques-cousteau.svg"
-                alt="Profile picture of Jacques Cousteau"
-                class="avatar__picture"
-              />
-            </figure>
-          </div>
+          <img
+            src="./images/jacques-cousteau.svg"
+            alt="Profile picture of Jacques Cousteau"
+            class="profile__avatar"
+          />
           <div class="profile-info">
             <div class="profile-info__container">
-              <h2 class="profile-info__jacques-cousteau">Jacques Cousteau</h2>
+              <h1 class="profile-info__name">Jacques Cousteau</h1>
               <button class="profile-info__edit-button" type="button">
                 <img
                   src="./images/edit-button.svg"
@@ -40,18 +37,16 @@
                   alt="Edit button"
                 />
               </button>
-              <h3 class="profile-info__explorer">Explorer</h3>
+              <h2 class="profile-info__subtitle">Explorer</h2>
             </div>
           </div>
-          <div class="profile-add-button">
-            <button class="profile-add-button__button" type="button">
-              <img
-                src="./images/add-button.svg"
-                class="profile-add-button__image"
-                alt="Profile add button"
-              />
-            </button>
-          </div>
+          <button class="profile-add-button__button" type="button">
+            <img
+              src="./images/add-button.svg"
+              class="profile-add-button__image"
+              alt="Profile add button"
+            />
+          </button>
         </section>
         <section class="gallery">
           <ul class="gallery__cards">
@@ -159,10 +154,11 @@
             </li>
           </ul>
         </section>
-        <section class="footer">
-          <p class="footer__copyright">© 2022 Around The U.S.</p>
-        </section>
       </main>
+
+      <footer class="footer">
+        <p class="footer__copyright">© 2022 Around The U.S.</p>
+      </footer>
     </div>
   </body>
 </html>
