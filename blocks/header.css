@@ -9,14 +9,6 @@
 .header__logo {
 }
 
-/* @media screen and (max-width: 2000px) {
-  .header {
-    width: 880px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-} */
-
 @media screen and (max-width: 1258px) {
   .header {
     margin-right: 25px;
