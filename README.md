@@ -21,4 +21,4 @@ I was tasked with creating a website that would test my ability to use media que
 
 **Final Product**
 
-Click [here]() in order to check out my website!!
+Click [here](https://propitive.github.io/se_project_aroundtheus/) in order to check out my website!!
