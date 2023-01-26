@@ -7,6 +7,7 @@
 
 .profile-info__container {
   width: 100%;
+  max-width: 580px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -25,6 +26,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 522px;
 }
 
 .profile-info__edit-button {
@@ -53,7 +55,7 @@
   padding: 0;
   width: 100%;
   color: white;
-  display: flex;
+  /* display: flex; */
   align-self: flex-end;
   font-family: "Inter", Arial, sans-serif;
   font-size: 18px;
@@ -64,6 +66,15 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media screen and (max-width: 900px) {
+  .profile-info__name {
+    max-width: 410px;
+  }
+  .profile-info__subtitle {
+    max-width: 458px;
+  }
 }
 
 @media screen and (max-width: 777px) {
