@@ -1,0 +1,117 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.modal__open {
+  display: flex;
+}
+
+.modal__close_icon {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: -45px;
+  right: -45px;
+}
+
+.modal__container {
+  width: 430px;
+  background-color: white;
+  margin: auto;
+  padding: 34px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 15px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  margin-top: 195px;
+  position: relative;
+}
+
+.modal__title {
+  margin: 0;
+  text-align: center;
+  margin-bottom: 54px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.modal__name {
+  margin-bottom: 30px;
+  padding-bottom: 13px;
+  border-style: none none solid none;
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.modal__description {
+  margin-bottom: 48px;
+  padding-bottom: 13px;
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+  border-style: none none solid none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.modal__button {
+  padding: 0;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border: 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+}
+
+/* START  -  One card per row */
+@media screen and (max-width: 778px) {
+  .modal__container {
+    margin-top: 123px;
+    width: 282px;
+    height: 322px;
+    padding: 22px;
+  }
+  .modal__title {
+    text-align: start;
+    height: 22px;
+    margin-bottom: 75px;
+  }
+  .modal__description {
+    margin-bottom: 45px;
+  }
+  .modal__button {
+    height: 46px;
+  }
+  .modal__close_icon {
+    height: 26px;
+    width: 26px;
+    right: 0;
+  }
+}
+/* END  -  One card per row */
