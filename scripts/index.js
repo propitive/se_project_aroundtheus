@@ -32,20 +32,6 @@ let editButton = document.querySelector(".profile-info__edit-button");
 let closeButton = document.querySelector(".modal__close_icon");
 let modal = document.querySelector(".modal");
 
-/* function openModal() {
-  modal.classList.add("modal__open");
-  console.log("Modal has been opened");
-}
-
-function closeModal() {
-  modal.classList.remove("modal__opened");
-  console.log("Modal has been closed");
-}
-
-editButton.addEventListener("click", openModal());
-
-closeButton.addEventListener("click", closeModal()); */
-
 editButton.addEventListener("click", function () {
   modal.classList.add("modal__open");
   console.log("Modal has been opened");
