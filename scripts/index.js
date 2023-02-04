@@ -1,3 +1,4 @@
+// START - Cards being listed
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -24,3 +25,34 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
   },
 ];
+// END - Cards being listed
+
+// START - Modal box toggle
+let editButton = document.querySelector(".profile-info__edit-button");
+let closeButton = document.querySelector(".modal__close_icon");
+let modal = document.querySelector(".modal");
+
+/* function openModal() {
+  modal.classList.add("modal__open");
+  console.log("Modal has been opened");
+}
+
+function closeModal() {
+  modal.classList.remove("modal__opened");
+  console.log("Modal has been closed");
+}
+
+editButton.addEventListener("click", openModal());
+
+closeButton.addEventListener("click", closeModal()); */
+
+editButton.addEventListener("click", function () {
+  modal.classList.add("modal__open");
+  console.log("Modal has been opened");
+});
+
+closeButton.addEventListener("click", function () {
+  modal.classList.remove("modal__open");
+  console.log("Modal has been closed");
+});
+//END - Modal box toggle
