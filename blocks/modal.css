@@ -89,6 +89,10 @@
   text-align: center;
 }
 
+.modal__button:hover {
+  opacity: 0.8;
+}
+
 /* START  -  One card per row */
 @media screen and (max-width: 778px) {
   .modal__container {
