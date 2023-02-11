@@ -73,20 +73,22 @@
     </footer>
 
     <div class="modal">
-      <form class="modal__container">
-        <h2 class="modal__title">Edit profile</h2>
-        <input type="text" class="modal__name" placeholder="Name" />
-        <input
-          type="text"
-          class="modal__description"
-          placeholder="Description"
-        />
-        <button type="submit" class="modal__button">Save</button>
+      <div class="modal__container">
+        <form class="modal__form">
+          <h2 class="modal__title">Edit profile</h2>
+          <input type="text" class="modal__name" placeholder="Name" />
+          <input
+            type="text"
+            class="modal__description"
+            placeholder="Description"
+          />
+          <button type="submit" class="modal__button">Save</button>
 
-        <img class="modal__close_icon" src="./images/Close Icon.svg" />
-      </form>
+          <img class="modal__close_icon" src="./images/Close Icon.svg" />
+        </form>
+      </div>
     </div>
 
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js" defer></script>
   </body>
 </html>

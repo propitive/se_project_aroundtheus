@@ -42,6 +42,7 @@
 
 .profile-info__edit-button:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .profile-info__image {

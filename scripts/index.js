@@ -28,60 +28,56 @@ const initialCards = [
 // END - Cards being listed
 
 // START - Modal box toggle
-let editButton = document.querySelector(".profile-info__edit-button");
-let closeButton = document.querySelector(".modal__close_icon");
-let modal = document.querySelector(".modal");
-
-editButton.addEventListener("click", function () {
-  modal.classList.add("modal__open");
-  console.log("Modal has been opened");
-});
+const editButton = document.querySelector(".profile-info__edit-button");
+const closeButton = document.querySelector(".modal__close_icon");
+const modal = document.querySelector(".modal");
 
 closeButton.addEventListener("click", function () {
   modal.classList.remove("modal__open");
   console.log("Modal has been closed");
 });
+
 //END - Modal box toggle
 
 // START - Form fields
-let profileName = document.querySelector(".profile-info__name");
-let profileSubtitle = document.querySelector(".profile-info__subtitle");
-let inputName = document.querySelector(".modal__name");
-let inputDescription = document.querySelector(".modal__description");
+const profileName = document.querySelector(".profile-info__name");
+const profileSubtitle = document.querySelector(".profile-info__subtitle");
+const inputName = document.querySelector(".modal__name");
+const inputDescription = document.querySelector(".modal__description");
 
-function toggleForm() {
+function fillProfileForm() {
   inputName.value = profileName.textContent;
   inputDescription.value = profileSubtitle.textContent;
 }
 
 editButton.addEventListener("click", function () {
-  toggleForm();
+  fillProfileForm();
+  modal.classList.add("modal__open");
+  console.log("Modal has been opened");
 });
 //END - Form fields
 
 //START - Editing your name and about me
-let profileFormElement = document.querySelector(".modal");
+const profileFormElement = document.querySelector(".modal");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileSubtitle.textContent = inputDescription.value;
+  modal.classList.remove("modal__open");
+  console.log("Modal has been closed");
 }
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
-profileFormElement.addEventListener("submit", function () {
-  modal.classList.remove("modal__open");
-  console.log("Modal has been closed");
-});
 //END - Editing your name and about me
 
 //START: Rendering cards
-let galleryCards = document.querySelector(".gallery__cards");
+const galleryCards = document.querySelector(".gallery__cards");
 
 function getCardElement(data) {
   console.log(data);
-  let cardTemplate = document.querySelector("#card").content;
-  let cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const cardTemplate = document.querySelector("#card").content;
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const cardTitle = data.name;
   const cardImage = data.link;
   cardElement.querySelector(".card__image").src = cardImage;
