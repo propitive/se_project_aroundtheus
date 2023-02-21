@@ -36,7 +36,6 @@ closeButton.addEventListener("click", function () {
   modal.classList.remove("modal__open");
   console.log("Modal has been closed");
 });
-
 //END - Modal box toggle
 
 // START - Form fields
@@ -71,29 +70,6 @@ function handleProfileFormSubmit(evt) {
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 //END - Editing your name and about me
 
-//START: Rendering cards with a for loop
-/*
-const galleryCards = document.querySelector(".gallery__cards");
-
-function getCardElement(data) {
-  console.log(data);
-  const cardTemplate = document.querySelector("#card").content;
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  const cardTitle = data.name;
-  const cardImage = data.link;
-  cardElement.querySelector(".card__image").src = cardImage;
-  cardElement.querySelector(".card__image").alt = cardTitle;
-  cardElement.querySelector(".card__title").textContent = cardTitle;
-  return cardElement;
-}
-
-for (let i = 0; i <= initialCards.length; i++) {
-  const data = initialCards[i];
-  const card = getCardElement(data);
-  galleryCards.append(card);
-} */
-//END: Rendering cards with a for loop
-
 //START: Rendering cards with a forEach method
 const galleryCards = document.querySelector(".gallery__cards");
 
@@ -106,8 +82,63 @@ initialCards.forEach(function (data) {
   cardElement.querySelector(".card__image").src = cardImage;
   cardElement.querySelector(".card__image").alt = cardTitle;
   cardElement.querySelector(".card__title").textContent = cardTitle;
-  const card = cardElement
+  const card = cardElement;
   galleryCards.append(card);
   return cardElement;
-})
+});
 //END: Rendering cards with a forEach method
+
+//START: New item modal box open
+const addButton = document.querySelector(".add-button");
+const newItemModal = document.querySelector(".new-item-modal");
+
+addButton.addEventListener("click", function () {
+  newItemModal.classList.add("new-item-modal__open");
+  console.log("Modal has been opened");
+});
+//END: New item modal box open
+
+//START: New item modal box close
+const newItemCloseButton = document.querySelector(
+  ".new-item-modal__close-icon"
+);
+
+newItemCloseButton.addEventListener("click", function () {
+  newItemModal.classList.remove("new-item-modal__open");
+  console.log("Modal has been closed");
+});
+//END: New item modal box close
+
+//START: Adding a card
+const newItemTitle = document.querySelector(".new-item-modal__title");
+const newItemImageLink = document.querySelector(".new-item-modal__image-link");
+const newItemButton = document.querySelector(".new-item-modal__button");
+
+function handleCardFormSubmit(evt) {
+  evt.preventDefault();
+  const cardTemplate = document.querySelector("#card").content;
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const newItemTitleText = newItemTitle.value;
+  const newItemLinkText = newItemImageLink.value;
+  cardElement.querySelector(".card__image").src = newItemLinkText;
+  cardElement.querySelector(".card__image").alt = newItemTitleText;
+  cardElement.querySelector(".card__title").textContent = newItemTitleText;
+  const card = cardElement;
+  galleryCards.prepend(card);
+  console.log(newItemTitleText);
+  console.log(newItemLinkText);
+  return cardElement;
+}
+
+newItemButton.addEventListener("click", handleCardFormSubmit);
+//END: Adding a card
+
+//START: Adding the button's click function
+const newItemLikeButton = document.querySelector(".card__like-button");
+const newItemLikeImage = document.querySelector(".card__button");
+
+newItemLikeButton.addEventListener("click", function () {
+  newItemLikeImage.classList.toggle(".card__button-active");
+  console.log("Like button has been pressed");
+});
+//END: Adding the button's click function

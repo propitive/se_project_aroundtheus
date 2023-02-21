@@ -32,15 +32,28 @@
 }
 
 .card__like-button {
-  background: transparent;
+  background: url(../images/like-button.svg) no-repeat;
   border: none;
   display: flex;
   padding: 0;
+  height: 19px;
+  width: 21px;
+}
+
+.card__like-button-active {
+  background: url(../images/like-button-active-two.png) no-repeat;
+  height: 19px;
+  width: 21px;
 }
 
 .card__button {
   width: 21px;
   height: 18px;
+  display: none;
+}
+
+.card__button-active {
+  display: block;
 }
 
 .card__button:hover {
