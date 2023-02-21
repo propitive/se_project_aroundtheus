@@ -71,7 +71,8 @@ function handleProfileFormSubmit(evt) {
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 //END - Editing your name and about me
 
-//START: Rendering cards
+//START: Rendering cards with a for loop
+/*
 const galleryCards = document.querySelector(".gallery__cards");
 
 function getCardElement(data) {
@@ -90,5 +91,23 @@ for (let i = 0; i <= initialCards.length; i++) {
   const data = initialCards[i];
   const card = getCardElement(data);
   galleryCards.append(card);
-}
-//END: Rendering cards
+} */
+//END: Rendering cards with a for loop
+
+//START: Rendering cards with a forEach method
+const galleryCards = document.querySelector(".gallery__cards");
+
+initialCards.forEach(function (data) {
+  console.log(data);
+  const cardTemplate = document.querySelector("#card").content;
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const cardTitle = data.name;
+  const cardImage = data.link;
+  cardElement.querySelector(".card__image").src = cardImage;
+  cardElement.querySelector(".card__image").alt = cardTitle;
+  cardElement.querySelector(".card__title").textContent = cardTitle;
+  const card = cardElement
+  galleryCards.append(card);
+  return cardElement;
+})
+//END: Rendering cards with a forEach method
