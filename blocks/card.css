@@ -1,6 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .card__image {
@@ -50,4 +51,23 @@
 
 .card__like-button-active {
   background: url(../images/like-button-active-two.png) no-repeat;
+}
+
+.card__delete-button {
+  background: url(../images/delete-button-icon.svg) no-repeat;
+  border: none;
+  display: flex;
+  padding: 0;
+  height: 18px;
+  width: 19px;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  transition-property: opacity;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+}
+
+.card__delete-button:hover {
+  opacity: .5;
 }

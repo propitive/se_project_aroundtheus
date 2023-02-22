@@ -88,11 +88,22 @@ initialCards.forEach(function (data) {
     //START: Adding the button's click function
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardLikeImage = cardElement.querySelector(".card__button");
+
   cardLikeButton.addEventListener("click", function () {
     cardLikeButton.classList.toggle("card__like-button-active");
     console.log("Like button has been pressed");
   });
   //END: Adding the button's click function
+
+//START: Adding the delete button's click function
+const deleteButton = cardElement.querySelector(".card__delete-button");
+
+deleteButton.addEventListener("click", function() {
+  const listItem = deleteButton.closest(".card");
+  listItem.remove();
+  console.log("Card has been deleted");
+})
+//END: Adding the delete button's click function
 
   return cardElement;
 });
@@ -139,14 +150,25 @@ function handleCardFormSubmit(evt) {
   console.log(newItemLinkText);
   console.log(cardElement);
 
-  //START: Adding the button's click function
+  //START: Adding the like button's click function
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardLikeImage = cardElement.querySelector(".card__button");
+
   cardLikeButton.addEventListener("click", function () {
     cardLikeButton.classList.toggle("card__like-button-active");
     console.log("Like button has been pressed");
   });
-  //END: Adding the button's click function
+  //END: Adding the like button's click function
+
+//START: Adding the delete button's click function
+const deleteButton = document.querySelector(".card__delete-button");
+
+deleteButton.addEventListener("click", function() {
+  const listItem = deleteButton.closest(".card");
+  listItem.remove();
+  console.log("Card has been deleted");
+})
+//END: Adding the delete button's click function
 
   return cardElement;
 }
@@ -154,5 +176,5 @@ function handleCardFormSubmit(evt) {
 newItemButton.addEventListener("click", handleCardFormSubmit);
 //END: Adding a card
 
-//START: Adding the button's click function
-//END: Adding the button's click function
+//START: Adding the delete button's click function
+//END: Adding the delete button's click function
