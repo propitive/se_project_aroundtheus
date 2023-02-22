@@ -127,10 +127,17 @@ function handleCardFormSubmit(evt) {
   galleryCards.prepend(card);
   console.log(newItemTitleText);
   console.log(newItemLinkText);
-  console.log(cardElement)
-/*
-  const cardLikeButton = cardElement.querySelector('.card__like-button')
-  cardLikeButton.addEventListener("click", Likemy) */
+  console.log(cardElement);
+
+  //START: Adding the button's click function
+  const cardLikeButton = cardElement.querySelector(".card__like-button");
+  const cardLikeImage = cardElement.querySelector(".card__button");
+  cardLikeButton.addEventListener("click", function () {
+    cardLikeButton.classList.toggle("card__like-button-active");
+    console.log("Like button has been pressed");
+  });
+  //END: Adding the button's click function
+
   return cardElement;
 }
 
@@ -138,19 +145,4 @@ newItemButton.addEventListener("click", handleCardFormSubmit);
 //END: Adding a card
 
 //START: Adding the button's click function
-const newItemLikeButton = document.querySelectorAll(".card__like-button");
-const newItemLikeImage = document.querySelectorAll(".card__button");
-
-
-document.addEventListener("click", (event) => {
-  document.querySelectorAll(".card__button").forEach(el => {
-    el.addEventListener("click", function () {
-      document.querySelectorAll(".card__button").forEach(el => {
-        el.classList.toggle(".card__button-active");
-        console.log("Like button has been pressed");
-      })
-    })
-  })
-});
 //END: Adding the button's click function
-

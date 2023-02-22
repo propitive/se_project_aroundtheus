@@ -42,21 +42,4 @@
 
 .card__like-button-active {
   background: url(../images/like-button-active-two.png) no-repeat;
-  height: 19px;
-  width: 21px;
-}
-
-.card__button {
-  width: 21px;
-  height: 18px;
-  opacity: 0;
-}
-
-.card__button-active {
-  opacity: 100%;
-}
-
-.card__button:hover {
-  opacity: 0.5;
-  cursor: pointer;
 }
