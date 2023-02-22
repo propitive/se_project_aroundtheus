@@ -84,6 +84,16 @@ initialCards.forEach(function (data) {
   cardElement.querySelector(".card__title").textContent = cardTitle;
   const card = cardElement;
   galleryCards.append(card);
+
+    //START: Adding the button's click function
+  const cardLikeButton = cardElement.querySelector(".card__like-button");
+  const cardLikeImage = cardElement.querySelector(".card__button");
+  cardLikeButton.addEventListener("click", function () {
+    cardLikeButton.classList.toggle("card__like-button-active");
+    console.log("Like button has been pressed");
+  });
+  //END: Adding the button's click function
+
   return cardElement;
 });
 //END: Rendering cards with a forEach method
