@@ -37,7 +37,6 @@
 }
 
 .image-pop-up[closing] {
-  display: block; 
   pointer-events: none;
   inset: 0;
   animation: fade-out 500ms forwards;
