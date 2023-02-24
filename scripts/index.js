@@ -32,7 +32,7 @@ const initialCards = [
 
 // START - Modal box toggle
 const editButton = document.querySelector(".profile-info__edit-button");
-const closeButton = document.querySelector(".modal__close_icon");
+const closeButton = document.querySelector(".modal__close-icon");
 const modal = document.querySelector(".modal");
 
 closeButton.addEventListener("click", function () {
