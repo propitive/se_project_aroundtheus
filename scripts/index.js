@@ -126,25 +126,23 @@ initialCards.forEach(function (data) {
     console.log(
       imagePopUpElement.querySelector(".image-pop-up__title").textContent
     );
-  }
-
-  const imageOnCard = cardElement.querySelector(".card__image");
-
-  imageOnCard.addEventListener("click", handleImagePopUp);
-  //END: Opening a picture modal
-
-  //START: Removing the picture modal
-  /* const divInImagePopUpTemplate =
+    //START: Removing the picture modal
+ const divInImagePopUpTemplate =
     imagePopUpElement.querySelector(".image-pop-up"); 
   const imagePopUpCloseButton = imagePopUpElement.querySelector(
     ".image-pop-up__close-icon"
   );
 
   imagePopUpCloseButton.addEventListener("click", function () {
-    const imageThatIsPoppedUp = imagePopUpCloseButton.closest(".image-pop-up");
-    imageThatIsPoppedUp.remove();
-  }); */
+    imagePopUpElement.remove();
+  }); 
   //END: Removing the picture modal
+  }
+
+  const imageOnCard = cardElement.querySelector(".card__image");
+
+  imageOnCard.addEventListener("click", handleImagePopUp);
+  //END: Opening a picture modal
 
   return cardElement;
 });
