@@ -27,6 +27,9 @@ const initialCards = [
 ];
 // END - Cards being listed
 
+
+
+
 // START - Modal box toggle
 const editButton = document.querySelector(".profile-info__edit-button");
 const closeButton = document.querySelector(".modal__close_icon");
@@ -37,6 +40,9 @@ closeButton.addEventListener("click", function () {
   console.log("Modal has been closed");
 });
 //END - Modal box toggle
+
+
+
 
 // START - Form fields
 const profileName = document.querySelector(".profile-info__name");
@@ -56,6 +62,9 @@ editButton.addEventListener("click", function () {
 });
 //END - Form fields
 
+
+
+
 //START - Editing your name and about me
 const profileFormElement = document.querySelector(".modal");
 
@@ -69,6 +78,9 @@ function handleProfileFormSubmit(evt) {
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 //END - Editing your name and about me
+
+
+
 
 //START: Rendering cards with a forEach method
 const galleryCards = document.querySelector(".gallery__cards");
@@ -85,6 +97,7 @@ initialCards.forEach(function (data) {
   const card = cardElement;
   galleryCards.append(card);
 
+
   //START: Adding the button's click function
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardLikeImage = cardElement.querySelector(".card__button");
@@ -95,6 +108,7 @@ initialCards.forEach(function (data) {
   });
   //END: Adding the button's click function
 
+
   //START: Adding the delete button's click function
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
@@ -102,8 +116,9 @@ initialCards.forEach(function (data) {
     const listItem = deleteButton.closest(".card");
     listItem.remove();
     console.log("Card has been deleted");
-  });
+  }); 
   //END: Adding the delete button's click function
+
 
   //START: Opening a picture modal
   function handleImagePopUp() {
@@ -126,6 +141,7 @@ initialCards.forEach(function (data) {
     console.log(
       imagePopUpElement.querySelector(".image-pop-up__title").textContent
     );
+
     //START: Removing the picture modal
  const divInImagePopUpTemplate =
     imagePopUpElement.querySelector(".image-pop-up"); 
@@ -133,11 +149,19 @@ initialCards.forEach(function (data) {
     ".image-pop-up__close-icon"
   );
 
-  imagePopUpCloseButton.addEventListener("click", function () {
-    imagePopUpElement.remove();
-  }); 
-  //END: Removing the picture modal
+  imagePopUpCloseButton.addEventListener("click", function() {
+    imagePopUp.setAttribute("closing", "");
+
+    imagePopUp.addEventListener(
+      "animationend",
+      () => {
+        imagePopUpElement.remove();
+      },
+      { once: true },
+    );
+  })
   }
+    //END: Removing the picture modal
 
   const imageOnCard = cardElement.querySelector(".card__image");
 
@@ -208,6 +232,54 @@ function handleCardFormSubmit(evt) {
     console.log("Card has been deleted");
   });
   //END: Adding the delete button's click function
+
+    //START: Opening a picture modal
+    function handleImagePopUp() {
+      const footer = document.querySelector(".footer");
+      const imagePopUpTemplate = document.querySelector("#image-pop-up").content;
+      const imagePopUpElement = imagePopUpTemplate
+        .querySelector(".image-pop-up")
+        .cloneNode(true);
+  
+      imagePopUpElement.querySelector(".image-pop-up__image").src = newItemLinkText;
+      imagePopUpElement.querySelector(".image-pop-up__image").alt = newItemTitleText;
+      imagePopUpElement.querySelector(".image-pop-up__title").textContent =
+      newItemTitleText;
+  
+      const imagePopUp = imagePopUpElement;
+      footer.after(imagePopUp);
+  
+      console.log(imagePopUpElement.querySelector(".image-pop-up__image").src);
+      console.log(imagePopUpElement.querySelector(".image-pop-up__image").alt);
+      console.log(
+        imagePopUpElement.querySelector(".image-pop-up__title").textContent
+      );
+  
+      //START: Removing the picture modal
+   const divInImagePopUpTemplate =
+      imagePopUpElement.querySelector(".image-pop-up"); 
+    const imagePopUpCloseButton = imagePopUpElement.querySelector(
+      ".image-pop-up__close-icon"
+    );
+  
+    imagePopUpCloseButton.addEventListener("click", function() {
+      imagePopUp.setAttribute("closing", "");
+  
+      imagePopUp.addEventListener(
+        "animationend",
+        () => {
+          imagePopUpElement.remove();
+        },
+        { once: true },
+      );
+    })
+    }
+      //END: Removing the picture modal
+  
+    const imageOnCard = cardElement.querySelector(".card__image");
+  
+    imageOnCard.addEventListener("click", handleImagePopUp);
+    //END: Opening a picture modal
 
   return cardElement;
 }
