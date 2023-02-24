@@ -85,7 +85,7 @@ initialCards.forEach(function (data) {
   const card = cardElement;
   galleryCards.append(card);
 
-    //START: Adding the button's click function
+  //START: Adding the button's click function
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardLikeImage = cardElement.querySelector(".card__button");
 
@@ -95,15 +95,56 @@ initialCards.forEach(function (data) {
   });
   //END: Adding the button's click function
 
-//START: Adding the delete button's click function
-const deleteButton = cardElement.querySelector(".card__delete-button");
+  //START: Adding the delete button's click function
+  const deleteButton = cardElement.querySelector(".card__delete-button");
 
-deleteButton.addEventListener("click", function() {
-  const listItem = deleteButton.closest(".card");
-  listItem.remove();
-  console.log("Card has been deleted");
-})
-//END: Adding the delete button's click function
+  deleteButton.addEventListener("click", function () {
+    const listItem = deleteButton.closest(".card");
+    listItem.remove();
+    console.log("Card has been deleted");
+  });
+  //END: Adding the delete button's click function
+
+  //START: Opening a picture modal
+  function handleImagePopUp() {
+    const footer = document.querySelector(".footer");
+    const imagePopUpTemplate = document.querySelector("#image-pop-up").content;
+    const imagePopUpElement = imagePopUpTemplate
+      .querySelector(".image-pop-up")
+      .cloneNode(true);
+
+    imagePopUpElement.querySelector(".image-pop-up__image").src = cardImage;
+    imagePopUpElement.querySelector(".image-pop-up__image").alt = cardTitle;
+    imagePopUpElement.querySelector(".image-pop-up__title").textContent =
+      cardTitle;
+
+    const imagePopUp = imagePopUpElement;
+    footer.after(imagePopUp);
+
+    console.log(imagePopUpElement.querySelector(".image-pop-up__image").src);
+    console.log(imagePopUpElement.querySelector(".image-pop-up__image").alt);
+    console.log(
+      imagePopUpElement.querySelector(".image-pop-up__title").textContent
+    );
+  }
+
+  const imageOnCard = cardElement.querySelector(".card__image");
+
+  imageOnCard.addEventListener("click", handleImagePopUp);
+  //END: Opening a picture modal
+
+  //START: Removing the picture modal
+  /* const divInImagePopUpTemplate =
+    imagePopUpElement.querySelector(".image-pop-up"); 
+  const imagePopUpCloseButton = imagePopUpElement.querySelector(
+    ".image-pop-up__close-icon"
+  );
+
+  imagePopUpCloseButton.addEventListener("click", function () {
+    const imageThatIsPoppedUp = imagePopUpCloseButton.closest(".image-pop-up");
+    imageThatIsPoppedUp.remove();
+  }); */
+  //END: Removing the picture modal
 
   return cardElement;
 });
@@ -160,15 +201,15 @@ function handleCardFormSubmit(evt) {
   });
   //END: Adding the like button's click function
 
-//START: Adding the delete button's click function
-const deleteButton = document.querySelector(".card__delete-button");
+  //START: Adding the delete button's click function
+  const deleteButton = document.querySelector(".card__delete-button");
 
-deleteButton.addEventListener("click", function() {
-  const listItem = deleteButton.closest(".card");
-  listItem.remove();
-  console.log("Card has been deleted");
-})
-//END: Adding the delete button's click function
+  deleteButton.addEventListener("click", function () {
+    const listItem = deleteButton.closest(".card");
+    listItem.remove();
+    console.log("Card has been deleted");
+  });
+  //END: Adding the delete button's click function
 
   return cardElement;
 }
