@@ -13,7 +13,7 @@
   display: flex;
 }
 
-.modal__close-icon {
+.modal__close_icon {
   height: 40px;
   width: 40px;
   position: absolute;
@@ -121,7 +121,7 @@
   .modal__button {
     height: 46px;
   }
-  .modal__close-icon {
+  .modal__close_icon {
     height: 26px;
     width: 26px;
     right: -25px;
