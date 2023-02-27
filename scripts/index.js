@@ -27,18 +27,30 @@ const initialCards = [
 ];
 // END - Cards being listed
 
+//START - Reusable functions
+
+function openModal(modal) {
+  modal.classList.add("modal__open");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal__open");
+}
+
+// END - Reusable functions
+
 
 
 
 // START - Modal box toggle
 const editButton = document.querySelector(".profile-info__edit-button");
-const closeButton = document.querySelector(".modal__close-icon");
-const modal = document.querySelector(".modal");
+const profileModalCloseButton = document.querySelector(".modal__close-icon");
+const profileModal = document.querySelector(".modal");
 
-closeButton.addEventListener("click", function () {
-  modal.classList.remove("modal__open");
+profileModalCloseButton.addEventListener("click", function () {
+  closeModal(profileModal);
   console.log("Modal has been closed");
-});
+}); 
 //END - Modal box toggle
 
 
@@ -55,9 +67,9 @@ function fillProfileForm() {
   inputDescription.value = profileSubtitle.textContent;
 }
 
-editButton.addEventListener("click", function () {
+editButton.addEventListener("click", function(){
   fillProfileForm();
-  modal.classList.add("modal__open");
+  openModal(profileModal);
   console.log("Modal has been opened");
 });
 //END - Form fields
@@ -72,8 +84,8 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileSubtitle.textContent = inputDescription.value;
-  modal.classList.remove("modal__open");
-  console.log("Modal has been closed");
+  closeModal(profileModal);
+  console.log("Modal has been closed 2");
 }
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
@@ -177,8 +189,8 @@ const addButton = document.querySelector(".add-button");
 const newItemModal = document.querySelector(".new-item-modal");
 
 addButton.addEventListener("click", function () {
-  newItemModal.classList.add("new-item-modal__open");
-  console.log("Modal has been opened");
+  openModal(newItemModal);
+  console.log("Modal has been opened 4");
 });
 //END: New item modal box open
 
@@ -188,7 +200,7 @@ const newItemCloseButton = document.querySelector(
 );
 
 newItemCloseButton.addEventListener("click", function () {
-  newItemModal.classList.remove("new-item-modal__open");
+  closeModal(newItemModal);
   console.log("Modal has been closed");
 });
 //END: New item modal box close
@@ -280,7 +292,7 @@ function handleCardFormSubmit(evt) {
   
     imageOnCard.addEventListener("click", handleImagePopUp);
     //END: Opening a picture modal
-
+    closeModal(newItemModal); 
   return cardElement;
 }
 

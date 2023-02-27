@@ -6,12 +6,19 @@
   left: 0;
   z-index: 1000;
   background: rgba(0, 0, 0, 0.5);
-  display: none;
+  visibility: hidden;
+  opacity: 0; 
+  pointer-events: none;
+  transition: visibility 0s 0.5s, opacity 0.5s linear; 
 }
 
-.new-item-modal__open {
-  display: flex;
+.modal__open {
+  visibility: visible; 
+  opacity: 1; 
+  pointer-events: all; 
+  transition: visibility 0s, opacity 0.5s linear; 
 }
+
 .new-item-modal__container {
   margin: auto;
   margin-top: 195px;
@@ -23,10 +30,10 @@
 
 .new-item-modal__form {
   background-color: white;
-  margin-top: 34px;
+  margin-top: 0;
   margin-left: 36px;
   margin-right: 36px;
-  margin-bottom: 36px;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   border-radius: 15px;
@@ -41,6 +48,7 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
+  margin-top: 34px;
 }
 
 .new-item-modal__title {
@@ -80,6 +88,7 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  margin-bottom: 36.51px;
 }
 
 .new-item-modal__button:hover {
@@ -91,7 +100,7 @@
   height: 40px;
   width: 40px;
   position: absolute;
-  top: -80px;
+  top: -40px;
   right: -80px;
   cursor: pointer;
 }
