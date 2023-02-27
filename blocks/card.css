@@ -45,12 +45,13 @@
   width: 21px;
   opacity: 1;
   transition-property: opacity;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
+  cursor: pointer;
 }
 
 .card__like-button:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .card__like-button-active {
@@ -68,10 +69,11 @@
   right: 15px;
   top: 18px;
   transition-property: opacity;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+  cursor: pointer;
 }
 
 .card__delete-button:hover {
-  opacity: .5;
+  opacity: 0.5;
 }

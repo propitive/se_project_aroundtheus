@@ -13,13 +13,17 @@
   display: flex;
 }
 
-.modal__close_icon {
+.modal__close-icon {
   height: 40px;
   width: 40px;
   position: absolute;
   top: -80px;
   right: -80px;
   cursor: pointer;
+}
+
+.modal__close-icon:hover {
+  opacity: 0.6;
 }
 
 .modal__container {
