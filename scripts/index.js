@@ -209,6 +209,7 @@ newItemCloseButton.addEventListener("click", function () {
 const newItemTitle = document.querySelector(".new-item-modal__title");
 const newItemImageLink = document.querySelector(".new-item-modal__image-link");
 const newItemButton = document.querySelector(".new-item-modal__button");
+const newItemModalForm = document.querySelector(".new-item-modal__form");
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
@@ -292,6 +293,7 @@ function handleCardFormSubmit(evt) {
   
     imageOnCard.addEventListener("click", handleImagePopUp);
     //END: Opening a picture modal
+    newItemModalForm.reset();
     closeModal(newItemModal); 
   return cardElement;
 }
