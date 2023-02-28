@@ -23,11 +23,13 @@
   z-index: 1000;
   background: rgba(0, 0, 0, 0.5);
   text-align: center;
-  opacity:0;
-  transition: visibility 0s linear 0.5s,opacity 0.5s linear; 
+  visibility: hidden;
+  opacity: 0; 
+  pointer-events: none;
+  transition: visibility 0s 0.5s, opacity 0.5s linear; 
 }
 
-.image-pop-up:hover{
+/* .image-pop-up:hover{
   opacity:1;
   transition-delay:0s; 
 }
@@ -40,7 +42,7 @@
   pointer-events: none;
   inset: 0;
   animation: fade-out 500ms forwards;
-}
+} */
 
 .image-pop-up__container-two {
   max-width: 75vw;
