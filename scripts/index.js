@@ -41,6 +41,7 @@ const imagePopUp = document.querySelector(".image-pop-up");
 const imagePopUpImage = document.querySelector(".image-pop-up__image");
 const imagePopUpCloseIcon = document.querySelector(".image-pop-up__close-icon");
 const imagePopUpTitle = document.querySelector(".image-pop-up__title");
+imagePopUpCloseIcon.addEventListener("click", function(){closeModal(imagePopUp)});
 
 // END - Reusable data
 
@@ -151,7 +152,6 @@ function createCard(data) {
 
     //START: Removing the picture modal
 
-    imagePopUpCloseIcon.addEventListener("click", function(){closeModal(imagePopUp)});
     openModal(imagePopUp);
   }
 
