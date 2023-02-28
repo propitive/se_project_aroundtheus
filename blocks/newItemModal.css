@@ -7,16 +7,16 @@
   z-index: 1000;
   background: rgba(0, 0, 0, 0.5);
   visibility: hidden;
-  opacity: 0; 
+  opacity: 0;
   pointer-events: none;
-  transition: visibility 0s 0.5s, opacity 0.5s linear; 
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
 .modal__open {
-  visibility: visible; 
-  opacity: 1; 
-  pointer-events: all; 
-  transition: visibility 0s, opacity 0.5s linear; 
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .new-item-modal__container {
@@ -114,24 +114,27 @@
   .new-item-modal__container {
     margin-top: 123px;
     width: 282px;
-    height: 354px;
   }
   .new-item-modal__form {
-    margin-top: 25px;
     margin-left: 22px;
     margin-right: 22px;
-    margin-bottom: 25px;
   }
   .new-item-modal__header {
     text-align: start;
     height: 22px;
-    margin-bottom: 75px;
+    margin-bottom: 76px;
+    margin-top: 25px;
   }
-  .new-item-modal__image_link {
-    margin-bottom: 45px;
+  .new-item-modal__title {
+    padding-bottom: 9px;
+  }
+  .new-item-modal__image-link {
+    margin-bottom: 46px;
+    padding-bottom: 9px;
   }
   .new-item-modal__button {
     height: 46px;
+    margin-bottom: 25px;
   }
   .new-item-modal__close-icon {
     height: 26px;
