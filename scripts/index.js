@@ -137,24 +137,24 @@ function createCard(data) {
 
   //START: Opening a picture modal
   function handleImagePopUp() {
-    //const footer = document.querySelector(".footer");
 
     imagePopUpImage.src = cardImage;
     imagePopUpImage.alt = cardTitle;
     imagePopUpTitle.textContent =
       cardTitle;
 
-    //footer.after(imagePopUp);
-
     console.log(imagePopUpImage.src);
     console.log(imagePopUpImage.alt);
     console.log(
       imagePopUpTitle.textContent
     );
+
     //START: Removing the picture modal
+
     imagePopUpCloseIcon.addEventListener("click", function(){closeModal(imagePopUp)});
     openModal(imagePopUp);
   }
+
     //END: Removing the picture modal
 
   const imageOnCard = cardElement.querySelector(".card__image");
@@ -240,45 +240,24 @@ function handleCardFormSubmit(evt) {
 
     //START: Opening a picture modal
     function handleImagePopUp() {
-      const footer = document.querySelector(".footer");
-      const imagePopUpTemplate = document.querySelector("#image-pop-up").content;
-      const imagePopUpElement = imagePopUpTemplate
-        .querySelector(".image-pop-up")
-        .cloneNode(true);
   
-      imagePopUpElement.querySelector(".image-pop-up__image").src = newItemLinkText;
-      imagePopUpElement.querySelector(".image-pop-up__image").alt = newItemTitleText;
-      imagePopUpElement.querySelector(".image-pop-up__title").textContent =
+      imagePopUpImage.src = newItemLinkText;
+      imagePopUpImage.alt = newItemTitleText;
+      imagePopUpTitle.textContent =
       newItemTitleText;
-  
-      const imagePopUp = imagePopUpElement;
-      footer.after(imagePopUp);
-  
-      console.log(imagePopUpElement.querySelector(".image-pop-up__image").src);
-      console.log(imagePopUpElement.querySelector(".image-pop-up__image").alt);
+
+      console.log(imagePopUpImage.src);
+      console.log(imagePopUpImage.alt);
       console.log(
-        imagePopUpElement.querySelector(".image-pop-up__title").textContent
+        imagePopUpTitle.textContent
       );
   
       //START: Removing the picture modal
-   const divInImagePopUpTemplate =
-      imagePopUpElement.querySelector(".image-pop-up"); 
-    const imagePopUpCloseButton = imagePopUpElement.querySelector(
-      ".image-pop-up__close-icon"
-    );
-  
-    imagePopUpCloseButton.addEventListener("click", function() {
-      imagePopUp.setAttribute("closing", "");
-  
-      imagePopUp.addEventListener(
-        "animationend",
-        () => {
-          imagePopUpElement.remove();
-        },
-        { once: true },
-      );
-    })
+
+      imagePopUpCloseIcon.addEventListener("click", function(){closeModal(imagePopUp)});
+      openModal(imagePopUp);
     }
+
       //END: Removing the picture modal
   
     const imageOnCard = cardElement.querySelector(".card__image");
