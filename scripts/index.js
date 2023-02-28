@@ -97,7 +97,7 @@ profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 //START: Rendering cards with a forEach method
 const galleryCards = document.querySelector(".gallery__cards");
 
-initialCards.forEach(function (data) {
+function createCard(data) {
   console.log(data);
   const cardTemplate = document.querySelector("#card").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
@@ -106,8 +106,6 @@ initialCards.forEach(function (data) {
   cardElement.querySelector(".card__image").src = cardImage;
   cardElement.querySelector(".card__image").alt = cardTitle;
   cardElement.querySelector(".card__title").textContent = cardTitle;
-  const card = cardElement;
-  galleryCards.append(card);
 
 
   //START: Adding the button's click function
@@ -181,6 +179,16 @@ initialCards.forEach(function (data) {
   //END: Opening a picture modal
 
   return cardElement;
+}
+
+function renderCard (data) {
+  const card = createCard(data);
+  galleryCards.prepend(card)
+}
+
+initialCards.forEach(function (data) {
+  createCard(data);
+  renderCard(data);
 });
 //END: Rendering cards with a forEach method
 
