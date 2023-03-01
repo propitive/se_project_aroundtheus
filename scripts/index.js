@@ -42,12 +42,17 @@ const imagePopUpImage = document.querySelector(".image-pop-up__image");
 const imagePopUpCloseIcon = document.querySelector(".image-pop-up__close-icon");
 const imagePopUpTitle = document.querySelector(".image-pop-up__title");
 
+imagePopUpCloseIcon.addEventListener("click", function () {
+  closeModal(imagePopUp);
+});
+
 // END - Reusable data
 
 // START - Modal box toggle
 const editButton = document.querySelector(".profile-info__edit-button");
-const profileModalCloseButton = document.querySelector(".modal__close-icon");
-const profileModal = document.querySelector(".modal");
+const profileModal = document.querySelector("#profile-modal");
+const profileModalCloseButton =
+  profileModal.querySelector(".modal__close-icon");
 
 profileModalCloseButton.addEventListener("click", function () {
   closeModal(profileModal);
@@ -74,7 +79,7 @@ editButton.addEventListener("click", function () {
 //END - Form fields
 
 //START - Editing your name and about me
-const profileFormElement = document.querySelector(".modal");
+const profileFormElement = profileModal.querySelector(".modal__form");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -132,9 +137,6 @@ function createCard(data) {
 
     //START: Removing the picture modal
 
-    imagePopUpCloseIcon.addEventListener("click", function () {
-      closeModal(imagePopUp);
-    });
     openModal(imagePopUp);
   }
 
@@ -195,5 +197,5 @@ function handleCardFormSubmit(evt) {
   galleryCards.prepend(createCard(newData));
 }
 
-newItemButton.addEventListener("click", handleCardFormSubmit);
+newItemModalForm.addEventListener("submit", handleCardFormSubmit);
 //END: Adding a card
