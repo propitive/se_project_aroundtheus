@@ -197,6 +197,27 @@ function handleCardFormSubmit(evt) {
 newItemModalForm.addEventListener("submit", handleCardFormSubmit);
 //END: Adding a card
 
+/* const profileFormElement = profileModal.querySelector(".modal__form"); */
+/* const inputName = document.querySelector(".modal__name"); */
+
 inputName.addEventListener("input", function(evt) {
   console.log(evt.target.validity.valid)
 })
+
+const showInputError = (element) => {
+  element.classList.add("form__input_type_error");
+};
+
+const hideInputError = (element) => {
+  element.classList.remove("form__input_type_error");
+}
+
+const isValid = () => {
+  if (!inputName.validity.valid) {
+    showInputError(inputName);
+  } else {
+    hideInputError(inputName);
+  }
+};
+
+inputName.addEventListener("input", isValid);
