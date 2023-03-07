@@ -272,5 +272,12 @@ function handleCardFormSubmit(evt) {
 newItemButton.addEventListener("click", handleCardFormSubmit);
 //END: Adding a card
 
-//START: Adding the delete button's click function
-//END: Adding the delete button's click function
+
+
+
+const modalForm = document.querySelector(".modal__form");
+// const inputName = document.querySelector(".modal__name");
+
+inputName.addEventListener("input", function(evt) {
+  console.log(evt.target.validity.valid)
+})
