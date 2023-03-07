@@ -199,6 +199,7 @@ newItemModalForm.addEventListener("submit", handleCardFormSubmit);
 
 /* const profileFormElement = profileModal.querySelector(".modal__form"); */
 /* const inputName = document.querySelector(".modal__name"); */
+const inputNameErrorMessage = profileFormElement.querySelector(`.${inputName.id}-error`)
 
 inputName.addEventListener("input", function(evt) {
   console.log(evt.target.validity.valid)
@@ -206,10 +207,12 @@ inputName.addEventListener("input", function(evt) {
 
 const showInputError = (element) => {
   element.classList.add("form__input_type_error");
+  inputNameErrorMessage.classList.add("form__input-error_active");
 };
 
 const hideInputError = (element) => {
   element.classList.remove("form__input_type_error");
+  inputNameErrorMessage.classList.remove("form__input-error_active");
 }
 
 const isValid = () => {
