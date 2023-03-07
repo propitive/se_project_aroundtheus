@@ -45,22 +45,17 @@ imagePopUpCloseIcon.addEventListener("click", function(){closeModal(imagePopUp)}
 
 // END - Reusable data
 
-
-
-
 // START - Modal box toggle
 const editButton = document.querySelector(".profile-info__edit-button");
-const profileModalCloseButton = document.querySelector(".modal__close-icon");
-const profileModal = document.querySelector(".modal");
+const profileModal = document.querySelector("#profile-modal");
+const profileModalCloseButton =
+  profileModal.querySelector(".modal__close-icon");
 
 profileModalCloseButton.addEventListener("click", function () {
   closeModal(profileModal);
   console.log("Modal has been closed");
-}); 
+});
 //END - Modal box toggle
-
-
-
 
 // START - Form fields
 const profileName = document.querySelector(".profile-info__name");
@@ -73,18 +68,15 @@ function fillProfileForm() {
   inputDescription.value = profileSubtitle.textContent;
 }
 
-editButton.addEventListener("click", function(){
+editButton.addEventListener("click", function () {
   fillProfileForm();
   openModal(profileModal);
   console.log("Modal has been opened");
 });
 //END - Form fields
 
-
-
-
 //START - Editing your name and about me
-const profileFormElement = document.querySelector(".modal");
+const profileFormElement = profileModal.querySelector(".modal__form");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -96,9 +88,6 @@ function handleProfileFormSubmit(evt) {
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 //END - Editing your name and about me
-
-
-
 
 //START: Rendering cards with a forEach method
 const galleryCards = document.querySelector(".gallery__cards");
@@ -113,7 +102,6 @@ function createCard(data) {
   cardElement.querySelector(".card__image").alt = cardTitle;
   cardElement.querySelector(".card__title").textContent = cardTitle;
 
-
   //START: Adding the button's click function
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardLikeImage = cardElement.querySelector(".card__button");
@@ -124,7 +112,6 @@ function createCard(data) {
   });
   //END: Adding the button's click function
 
-
   //START: Adding the delete button's click function
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
@@ -132,42 +119,37 @@ function createCard(data) {
     const listItem = deleteButton.closest(".card");
     listItem.remove();
     console.log("Card has been deleted");
-  }); 
+  });
   //END: Adding the delete button's click function
-
 
   //START: Opening a picture modal
   function handleImagePopUp() {
-
     imagePopUpImage.src = cardImage;
     imagePopUpImage.alt = cardTitle;
-    imagePopUpTitle.textContent =
-      cardTitle;
+    imagePopUpTitle.textContent = cardTitle;
 
     console.log(imagePopUpImage.src);
     console.log(imagePopUpImage.alt);
-    console.log(
-      imagePopUpTitle.textContent
-    );
+    console.log(imagePopUpTitle.textContent);
 
     //START: Removing the picture modal
 
     openModal(imagePopUp);
   }
 
-    //END: Removing the picture modal
+  //END: Removing the picture modal
 
   const imageOnCard = cardElement.querySelector(".card__image");
 
-  imageOnCard.addEventListener("click", handleImagePopUp);  
+  imageOnCard.addEventListener("click", handleImagePopUp);
   //END: Opening a picture modal
 
   return cardElement;
 }
 
-function renderCard (data) {
+function renderCard(data) {
   const card = createCard(data);
-  galleryCards.prepend(card)
+  galleryCards.prepend(card);
 }
 
 initialCards.forEach(function (data) {
@@ -205,78 +187,15 @@ const newItemModalForm = document.querySelector(".new-item-modal__form");
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const cardTemplate = document.querySelector("#card").content;
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  const newItemTitleText = newItemTitle.value;
-  const newItemLinkText = newItemImageLink.value;
-  cardElement.querySelector(".card__image").src = newItemLinkText;
-  cardElement.querySelector(".card__image").alt = newItemTitleText;
-  cardElement.querySelector(".card__title").textContent = newItemTitleText;
-  const card = cardElement;
-  galleryCards.prepend(card);
-  console.log(newItemTitleText);
-  console.log(newItemLinkText);
-  console.log(cardElement);
-
-  //START: Adding the like button's click function
-  const cardLikeButton = cardElement.querySelector(".card__like-button");
-  const cardLikeImage = cardElement.querySelector(".card__button");
-
-  cardLikeButton.addEventListener("click", function () {
-    cardLikeButton.classList.toggle("card__like-button-active");
-    console.log("Like button has been pressed");
-  });
-  //END: Adding the like button's click function
-
-  //START: Adding the delete button's click function
-  const deleteButton = document.querySelector(".card__delete-button");
-
-  deleteButton.addEventListener("click", function () {
-    const listItem = deleteButton.closest(".card");
-    listItem.remove();
-    console.log("Card has been deleted");
-  });
-  //END: Adding the delete button's click function
-
-    //START: Opening a picture modal
-    function handleImagePopUp() {
-  
-      imagePopUpImage.src = newItemLinkText;
-      imagePopUpImage.alt = newItemTitleText;
-      imagePopUpTitle.textContent =
-      newItemTitleText;
-
-      console.log(imagePopUpImage.src);
-      console.log(imagePopUpImage.alt);
-      console.log(
-        imagePopUpTitle.textContent
-      );
-  
-      //START: Removing the picture modal
-
-      imagePopUpCloseIcon.addEventListener("click", function(){closeModal(imagePopUp)});
-      openModal(imagePopUp);
-    }
-
-      //END: Removing the picture modal
-  
-    const imageOnCard = cardElement.querySelector(".card__image");
-  
-    imageOnCard.addEventListener("click", handleImagePopUp);
-    //END: Opening a picture modal
-    newItemModalForm.reset();
-    closeModal(newItemModal); 
-  return cardElement;
+  const newData = { name: newItemTitle.value, link: newItemImageLink.value };
+  console.log(newData);
+  newItemModalForm.reset();
+  closeModal(newItemModal);
+  galleryCards.prepend(createCard(newData));
 }
 
-newItemButton.addEventListener("click", handleCardFormSubmit);
+newItemModalForm.addEventListener("submit", handleCardFormSubmit);
 //END: Adding a card
-
-
-
-
-const modalForm = document.querySelector(".modal__form");
-// const inputName = document.querySelector(".modal__name");
 
 inputName.addEventListener("input", function(evt) {
   console.log(evt.target.validity.valid)
