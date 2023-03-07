@@ -205,19 +205,21 @@ inputName.addEventListener("input", function(evt) {
   console.log(evt.target.validity.valid)
 })
 
-const showInputError = (element) => {
+const showInputError = (element, errorMessage) => {
   element.classList.add("form__input_type_error");
+  inputNameErrorMessage.textContent = errorMessage;
   inputNameErrorMessage.classList.add("form__input-error_active");
 };
 
 const hideInputError = (element) => {
   element.classList.remove("form__input_type_error");
   inputNameErrorMessage.classList.remove("form__input-error_active");
+  inputNameErrorMessage.textContent = "";
 }
 
 const isValid = () => {
   if (!inputName.validity.valid) {
-    showInputError(inputName);
+    showInputError(inputName, inputName.validationMessage);
   } else {
     hideInputError(inputName);
   }
