@@ -69,13 +69,13 @@
 
     <div class="modal" id="profile-modal">
       <div class="modal__container">
-        <form class="modal__form" novalidate>
+        <form class="form modal__form" novalidate>
           <h2 class="modal__title">Edit profile</h2>
-          <input id="edit-prof-name" type="text" class="modal__name" placeholder="Name" minlength="8"/>
+          <input id="edit-prof-name" type="text" class="form__input modal__name" placeholder="Name" minlength="8"/>
           <span class="edit-prof-name-error form__input-error"></span>
           <input
             type="text"
-            class="modal__description"
+            class="form__input modal__description"
             placeholder="Description"
           />
           <button type="submit" class="modal__button">Save</button>
@@ -87,16 +87,16 @@
 
     <div class="new-item-modal">
       <div class="new-item-modal__container">
-        <form class="new-item-modal__form" novalidate>
+        <form class="form new-item-modal__form" novalidate>
           <h2 class="new-item-modal__header">New place</h2>
           <input
             type="text"
-            class="new-item-modal__title"
+            class="form__input new-item-modal__title"
             placeholder="Title"
           />
           <input
             type="url"
-            class="new-item-modal__image-link"
+            class="form__input new-item-modal__image-link"
             placeholder="Image link"
           />
           <button type="submit" class="new-item-modal__button">Create</button>
