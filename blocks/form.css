@@ -33,3 +33,8 @@
 .edit-new-item-image-error {
   margin-bottom: 31px;
 }
+
+/* START: One card per row */
+@media screen and (max-width: 778px) {
+}
+/* END: One card per row */
