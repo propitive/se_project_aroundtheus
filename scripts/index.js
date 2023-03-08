@@ -305,8 +305,10 @@ function toggleButtonState(inputList, buttonElement) {
 
 function disableSubmitButton(buttonElement) {
   buttonElement.classList.add("form__submit_inactive");
+  buttonElement.setAttribute.disabled = true;
 }
 
 function enableSubmitButton(buttonElement) {
   buttonElement.classList.remove("form__submit_inactive");
+  buttonElement.setAttribute.disabled = false;
 }
