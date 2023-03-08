@@ -85,14 +85,14 @@
   margin-bottom: 36px;
 }
 
-.modal__button:hover {
+/* .modal__button:hover {
   opacity: 0.8;
   cursor: pointer;
-}
+} */
 
 .modal__button:hover:not(:disabled) { 
   opacity: 0.8;
-  cursor: default;
+  cursor: pointer;
 } ;
 
 /* START  -  One card per row */
