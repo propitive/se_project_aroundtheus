@@ -43,7 +43,7 @@
 }
 
 .modal__form {
-  background-color: white;
+  /* background-color: white;
   margin-left: 36px;
   margin-right: 36px;
   display: flex;
@@ -51,7 +51,7 @@
   border-radius: 15px;
   position: relative;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 0; */
 }
 
 .modal__title {
@@ -84,11 +84,6 @@
   text-align: center;
   margin-bottom: 36px;
 }
-
-/* .modal__button:hover {
-  opacity: 0.8;
-  cursor: pointer;
-} */
 
 .modal__button:hover:not(:disabled) { 
   opacity: 0.8;

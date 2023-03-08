@@ -1,15 +1,4 @@
 .new-item-modal {
-  /* position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.5);
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: visibility 0s 0.5s, opacity 0.5s linear; */
 }
 
 .modal__open {
@@ -29,7 +18,7 @@
 }
 
 .new-item-modal__form {
-  background-color: white;
+  /* background-color: white;
   margin-top: 0;
   margin-left: 36px;
   margin-right: 36px;
@@ -37,7 +26,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 15px;
-  position: relative;
+  position: relative; */
 }
 
 .new-item-modal__header {
@@ -71,8 +60,7 @@
   margin-bottom: 36.51px;
 }
 
-.new-item-modal__button:hover {
-  opacity: 0.8;
+.new-item-modal__button:hover:not(:disabled) {
   cursor: pointer;
 }
 
