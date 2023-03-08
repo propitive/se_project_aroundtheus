@@ -312,3 +312,17 @@ function enableSubmitButton(buttonElement) {
   buttonElement.classList.remove("form__submit_inactive");
   buttonElement.setAttribute.disabled = false;
 }
+
+window.addEventListener("click", function (e) {
+  if (e.target == newItemModal) {
+    closeModal(newItemModal);
+    console.log("Voila");
+  }
+});
+
+window.addEventListener("click", function (e) {
+  if (e.target == profileModal) {
+    closeModal(profileModal);
+    console.log("Voila");
+  }
+});
