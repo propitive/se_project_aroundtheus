@@ -66,29 +66,9 @@
 }
 
 .modal__name {
-  margin-bottom: 5px;
-  padding-bottom: 13px;
-  border-style: none none solid none;
-  border-bottom-width: 1px;
-  padding-top: 0;
-  padding-right: 0;
-  padding-left: 0;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
 }
 
 .modal__description {
-  margin-bottom: 5px;
-  padding-bottom: 13px;
-  padding-top: 0;
-  padding-right: 0;
-  padding-left: 0;
-  border-style: none none solid none;
-  border-bottom-width: 1px;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
 }
 
 .modal__button {
@@ -109,6 +89,11 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
+.modal__button:hover:not(:disabled) { 
+  opacity: 0.8;
+  cursor: default;
+} ;
 
 /* START  -  One card per row */
 @media screen and (max-width: 778px) {

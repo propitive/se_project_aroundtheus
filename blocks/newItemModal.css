@@ -52,29 +52,9 @@
 }
 
 .new-item-modal__title {
-  margin-bottom: 5px;
-  padding-bottom: 13px;
-  border-style: none none solid none;
-  border-bottom-width: 1px;
-  padding-top: 0;
-  padding-right: 0;
-  padding-left: 0;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
 }
 
 .new-item-modal__image-link {
-  margin-bottom: 5px;
-  padding-bottom: 13px;
-  padding-top: 0;
-  padding-right: 0;
-  padding-left: 0;
-  border-style: none none solid none;
-  border-bottom-width: 1px;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
 }
 
 .new-item-modal__button {
