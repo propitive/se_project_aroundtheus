@@ -63,6 +63,15 @@
   margin-bottom: 31px;
 }
 
+.form-title {
+  margin-bottom: 54px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin-top: 34px;  
+}
+
 /* START: One card per row */
 @media screen and (max-width: 778px) {
 }
