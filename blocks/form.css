@@ -1,15 +1,31 @@
 .form__input_type_error {
-    border-bottom-color: red;
+  border-bottom-color: red;
 }
 
 .form__input-error {
-    font-size: 12px;
-    color: red;
-    opacity: 0;
-    transition: all 0.3s ease 0s;
-    margin-bottom: 13px;
+  font-size: 12px;
+  color: red;
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+  /* margin-bottom: 13px; */
 }
 
 .form__input-error_active {
-    opacity: 1;
+  opacity: 1;
+}
+
+.edit-prof-name-error {
+  margin-bottom: 13px;
+}
+
+.edit-prof-desc-error {
+  margin-bottom: 31px;
+}
+
+.edit-new-item-title-error {
+  margin-bottom: 13px;
+}
+
+.edit-new-item-image-error {
+  margin-bottom: 31px;
 }

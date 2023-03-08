@@ -71,14 +71,24 @@
       <div class="modal__container">
         <form class="form modal__form" novalidate>
           <h2 class="modal__title">Edit profile</h2>
-          <input id="edit-prof-name" type="text" class="form__input modal__name" placeholder="Name" minlength="8"/>
+          <input
+            id="edit-prof-name"
+            type="text"
+            class="form__input modal__name"
+            placeholder="Name"
+            minlength="2"
+            maxlength="40"
+            required
+          />
           <span class="edit-prof-name-error form__input-error"></span>
           <input
             id="edit-prof-desc"
             type="text"
             class="form__input modal__description"
             placeholder="Description"
-            minlength="8"
+            minlength="2"
+            maxlength="200"
+            required
           />
           <span class="edit-prof-desc-error form__input-error"></span>
           <button type="submit" class="modal__button">Save</button>
@@ -97,7 +107,9 @@
             type="text"
             class="form__input new-item-modal__title"
             placeholder="Title"
-            minlength="8"
+            minlength="1"
+            maxlength="30"
+            required
           />
           <span class="edit-new-item-title-error form__input-error"></span>
           <input
@@ -105,6 +117,7 @@
             type="url"
             class="form__input new-item-modal__image-link"
             placeholder="Image link"
+            required
           />
           <span class="edit-new-item-image-error form__input-error"></span>
           <button type="submit" class="new-item-modal__button">Create</button>

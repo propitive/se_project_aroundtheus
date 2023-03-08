@@ -52,7 +52,7 @@
 }
 
 .new-item-modal__title {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   padding-bottom: 13px;
   border-style: none none solid none;
   border-bottom-width: 1px;
@@ -65,7 +65,7 @@
 }
 
 .new-item-modal__image-link {
-  margin-bottom: 48px;
+  margin-bottom: 5px;
   padding-bottom: 13px;
   padding-top: 0;
   padding-right: 0;
