@@ -155,7 +155,6 @@ function renderCard(data) {
 }
 
 initialCards.forEach(function (data) {
-  createCard(data);
   renderCard(data);
 });
 //END: Rendering cards with a forEach method
