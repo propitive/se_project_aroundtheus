@@ -326,3 +326,14 @@ window.addEventListener("click", function (e) {
     console.log("Voila");
   }
 });
+
+function keyHandler(e) {
+  if (e.key === "Escape") {
+    console.log("ESCAPE");
+    closeModal(newItemModal);
+    closeModal(profileModal);
+  }
+}
+
+document.addEventListener("keydown", keyHandler);
+document.addEventListener("keydown", keyHandler);
