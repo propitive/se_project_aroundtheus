@@ -14,6 +14,10 @@
   opacity: 1;
 }
 
+.form__submit_inactive {
+  opacity: 0.2;
+}
+
 .edit-prof-name-error {
   margin-bottom: 13px;
 }
