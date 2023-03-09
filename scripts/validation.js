@@ -1,11 +1,11 @@
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, formObjects) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(formObjects.formInputTypeError);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(formObjects.formInputErrorActive);
 };
 
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, formObjects) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(formObjects.formInputTypeError);
   errorElement.classList.remove(formObjects.formInputErrorActive);
@@ -72,12 +72,12 @@ function toggleButtonState(inputList, buttonElement, formObjects) {
   }
 }
 
-function disableSubmitButton(buttonElement) {
+function disableSubmitButton(buttonElement, formObjects) {
   buttonElement.classList.add(formObjects.formSubmitInactive);
   buttonElement.disabled = true;
 }
 
-function enableSubmitButton(buttonElement) {
+function enableSubmitButton(buttonElement, formObjects) {
   buttonElement.classList.remove(formObjects.formSubmitInactive);
   buttonElement.disabled = false;
 }
