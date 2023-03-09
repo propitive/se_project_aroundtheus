@@ -198,47 +198,6 @@ function handleCardFormSubmit(evt) {
 newItemModalForm.addEventListener("submit", handleCardFormSubmit);
 //END: Adding a card
 
-/* const profileFormElement = profileModal.querySelector(".modal__form"); */
-/* const inputName = document.querySelector(".modal__name"); */
-
-/*
-const inputNameErrorMessage = profileFormElement.querySelector(`.${inputName.id}-error`)
-
-inputName.addEventListener("input", function(evt) {
-  console.log(evt.target.validity.valid)
-})
-
-const showInputError = (element, errorMessage) => {
-  element.classList.add("form__input_type_error");
-  inputNameErrorMessage.textContent = errorMessage;
-  inputNameErrorMessage.classList.add("form__input-error_active");
-};
-
-const hideInputError = (element) => {
-  element.classList.remove("form__input_type_error");
-  inputNameErrorMessage.classList.remove("form__input-error_active");
-  inputNameErrorMessage.textContent = "";
-}
-
-const isValid = () => {
-  if (!inputName.validity.valid) {
-    showInputError(inputName, inputName.validationMessage);
-  } else {
-    hideInputError(inputName);
-  }
-};
-
-inputName.addEventListener("input", isValid);
-*/
-
-const inputNameErrorMessage = profileFormElement.querySelector(
-  `.${inputName.id}-error`
-);
-
-inputName.addEventListener("input", function (evt) {
-  console.log(evt.target.validity.valid);
-});
-
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add("form__input_type_error");
