@@ -12,7 +12,7 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.textContent = "";
 };
 
-const toggleInputError = (formElement, inputElement) => {
+const toggleInputError = (formElement, inputElement, formObjects) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
@@ -20,7 +20,7 @@ const toggleInputError = (formElement, inputElement) => {
   }
 };
 
-const setEventListeners = (formElement) => {
+const setEventListeners = (formElement, formObjects) => {
   const inputList = Array.from(
     formElement.querySelectorAll(formObjects.formInput)
   );
@@ -35,7 +35,7 @@ const setEventListeners = (formElement) => {
   });
 };
 
-const enableValidation = () => {
+const enableValidation = (formObjects) => {
   const formList = Array.from(document.querySelectorAll(formObjects.form));
 
   formList.forEach((formElement) => {
@@ -43,7 +43,7 @@ const enableValidation = () => {
       evt.preventDefault();
     });
 
-    setEventListeners(formElement);
+    setEventListeners(formElement, formObjects);
   });
 };
 
@@ -58,13 +58,13 @@ const formObjects = {
 
 enableValidation(formObjects);
 
-function hasInvalidInput(inputList) {
+function hasInvalidInput(inputList, formObjects) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 }
 
-function toggleButtonState(inputList, buttonElement) {
+function toggleButtonState(inputList, buttonElement, formObjects) {
   if (hasInvalidInput(inputList)) {
     disableSubmitButton(buttonElement);
   } else {
