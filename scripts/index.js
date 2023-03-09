@@ -32,11 +32,13 @@ const initialCards = [
 function openModal(modal) {
   modal.classList.add("modal__open");
   modal.addEventListener("mousedown", closeModalOnRemoteClick);
+  document.addEventListener("keydown", keyHandler);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal__open");
   modal.removeEventListner("mousedown", closeModalOnRemoteClick);
+  document.removeEventListener("keydown", keyHandler);
 }
 
 const imagePopUp = document.querySelector(".image-pop-up");
@@ -287,5 +289,5 @@ function keyHandler(e) {
   }
 }
 
-document.addEventListener("keydown", keyHandler);
-document.addEventListener("keydown", keyHandler);
+// document.addEventListener("keydown", keyHandler);
+// document.removeEventListener("keydown", keyHandler);
