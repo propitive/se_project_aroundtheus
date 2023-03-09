@@ -37,7 +37,7 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("modal__open");
-  modal.removeEventListner("mousedown", closeModalOnRemoteClick);
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
   document.removeEventListener("keydown", keyHandler);
 }
 
@@ -197,6 +197,11 @@ function handleCardFormSubmit(evt) {
   newItemModalForm.reset();
   closeModal(newItemModal);
   galleryCards.prepend(createCard(newData));
+  disableSubmitButton(newItemButton);
+
+  // const newCard = createCard(newData);
+  // const inputList = Array.from(newData.querySelectorAll(".form__input"));
+  // console.log("The following is the inputList for what we need: " + inputList);
 }
 
 newItemModalForm.addEventListener("submit", handleCardFormSubmit);
@@ -288,6 +293,3 @@ function keyHandler(e) {
     closeModal(openedModal);
   }
 }
-
-// document.addEventListener("keydown", keyHandler);
-// document.removeEventListener("keydown", keyHandler);
