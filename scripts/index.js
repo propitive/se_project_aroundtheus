@@ -273,20 +273,6 @@ function enableSubmitButton(buttonElement) {
   buttonElement.disabled = false;
 }
 
-// window.addEventListener("click", function (e) {
-//   if (e.target == newItemModal) {
-//     closeModal(newItemModal);
-//     console.log("Voila");
-//   }
-// });
-
-// window.addEventListener("click", function (e) {
-//   if (e.target == profileModal) {
-//     closeModal(profileModal);
-//     console.log("Voila");
-//   }
-// });
-
 function closeModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
     closeModal(evt.target);
@@ -296,8 +282,8 @@ function closeModalOnRemoteClick(evt) {
 function keyHandler(e) {
   if (e.key === "Escape") {
     console.log("ESCAPE");
-    closeModal(newItemModal);
-    closeModal(profileModal);
+    const openedModal = document.querySelector(".modal__open");
+    closeModal(openedModal);
   }
 }
 
