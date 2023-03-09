@@ -206,3 +206,5 @@ function handleCardFormSubmit(evt) {
 
 newItemModalForm.addEventListener("submit", handleCardFormSubmit);
 //END: Adding a card
+
+//The object is invalid for activating error

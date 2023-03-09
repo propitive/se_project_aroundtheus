@@ -58,10 +58,10 @@
 .modal__button {
 }
 
-.modal__button:hover:not(:disabled) { 
+.modal__button:hover:not(:disabled) {
   opacity: 0.8;
   cursor: pointer;
-} ;
+}
 
 /* START  -  One card per row */
 @media screen and (max-width: 778px) {
