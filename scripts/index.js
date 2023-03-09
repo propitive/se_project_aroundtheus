@@ -31,10 +31,12 @@ const initialCards = [
 
 function openModal(modal) {
   modal.classList.add("modal__open");
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal__open");
+  modal.removeEventListner("mousedown", closeModalOnRemoteClick);
 }
 
 const imagePopUp = document.querySelector(".image-pop-up");
@@ -271,19 +273,25 @@ function enableSubmitButton(buttonElement) {
   buttonElement.disabled = false;
 }
 
-window.addEventListener("click", function (e) {
-  if (e.target == newItemModal) {
-    closeModal(newItemModal);
-    console.log("Voila");
-  }
-});
+// window.addEventListener("click", function (e) {
+//   if (e.target == newItemModal) {
+//     closeModal(newItemModal);
+//     console.log("Voila");
+//   }
+// });
 
-window.addEventListener("click", function (e) {
-  if (e.target == profileModal) {
-    closeModal(profileModal);
-    console.log("Voila");
+// window.addEventListener("click", function (e) {
+//   if (e.target == profileModal) {
+//     closeModal(profileModal);
+//     console.log("Voila");
+//   }
+// });
+
+function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.target);
   }
-});
+}
 
 function keyHandler(e) {
   if (e.key === "Escape") {
