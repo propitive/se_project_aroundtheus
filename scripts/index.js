@@ -198,13 +198,21 @@ function handleCardFormSubmit(evt) {
   closeModal(newItemModal);
   galleryCards.prepend(createCard(newData));
   disableSubmitButton(newItemButton);
-
-  // const newCard = createCard(newData);
-  // const inputList = Array.from(newData.querySelectorAll(".form__input"));
-  // console.log("The following is the inputList for what we need: " + inputList);
 }
 
 newItemModalForm.addEventListener("submit", handleCardFormSubmit);
 //END: Adding a card
 
-//The object is invalid for activating error
+function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.target);
+  }
+}
+
+function keyHandler(e) {
+  if (e.key === "Escape") {
+    console.log("ESCAPE");
+    const openedModal = document.querySelector(".modal__open");
+    closeModal(openedModal);
+  }
+}

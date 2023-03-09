@@ -82,16 +82,4 @@ function enableSubmitButton(buttonElement) {
   buttonElement.disabled = false;
 }
 
-function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    closeModal(evt.target);
-  }
-}
 
-function keyHandler(e) {
-  if (e.key === "Escape") {
-    console.log("ESCAPE");
-    const openedModal = document.querySelector(".modal__open");
-    closeModal(openedModal);
-  }
-}
