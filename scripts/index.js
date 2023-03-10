@@ -197,7 +197,9 @@ function handleCardFormSubmit(evt) {
   newItemModalForm.reset();
   closeModal(newItemModal);
   galleryCards.prepend(createCard(newData));
-  disableSubmitButton(newItemButton);
+  disableSubmitButton(newItemButton, {
+    formSubmitInactive: "form__submit_inactive",
+  });
 }
 
 newItemModalForm.addEventListener("submit", handleCardFormSubmit);
