@@ -140,12 +140,13 @@ newItemCloseButton.addEventListener("click", function () {
 
 imagePopUpCloseIcon.addEventListener("click", function () {
   closeModal(imagePopUp);
+  console.log("Image pop up modal has been closed");
 });
 
 newItemModalForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  const name = e.target.newItemTitle.value;
-  const link = e.target.newItemImageLink.value;
+  const name = newItemTitle.value;
+  const link = newItemImageLink.value;
   renderCard({ name, link }, galleryCards);
   closeModal(newItemModal);
   newItemModalForm.reset();

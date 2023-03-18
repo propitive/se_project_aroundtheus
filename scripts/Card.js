@@ -5,6 +5,7 @@ class Card {
     this._name = data.name;
     this._link = data.link;
 
+    this._data = data;
     this._cardSelector = cardSelector;
   }
 
@@ -19,7 +20,7 @@ class Card {
 
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", this._handlePreviewPicture());
+      .addEventListener("click", this._handlePreviewPicture);
   }
 
   _handleLikeIcon() {
@@ -34,7 +35,7 @@ class Card {
     console.log("Card has been deleted");
   }
 
-  _handlePreviewPicture() {
+  _handlePreviewPicture = () => {
     const imagePopUp = document.querySelector(".image-pop-up");
     const imagePopUpImage = document.querySelector(".image-pop-up__image");
     const imagePopUpTitle = document.querySelector(".image-pop-up__title");
@@ -44,7 +45,7 @@ class Card {
     imagePopUpTitle.textContent = this._name;
 
     openModal(imagePopUp);
-  }
+  };
 
   _getTemplate() {
     return this._cardSelector.querySelector(".card").cloneNode(true);
