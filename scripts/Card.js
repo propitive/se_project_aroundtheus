@@ -1,52 +1,60 @@
-export default class Card {
+import { openModal } from "./utils.js";
+
+class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
 
-    this._data = data;
     this._cardSelector = cardSelector;
   }
 
   _setEventListeners() {
-    // this._element.addEventListener("click", () => {
-    //   this._handleLikeIcon();
-    // });
+    this._element
+      .querySelector(".card__like-button")
+      .addEventListener("click", () => this._handleLikeIcon());
 
-    // this._element.addEventListener("click", () => {
-    //   this._handleDeleteCard();
-    // });
+    this._element
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => this._handleDeleteCard());
 
-    this._element.addEventListener("click", this._handleLikeIcon);
-    this._element.addEventListener("click", this._handleDeleteCard);
+    this._element
+      .querySelector(".card__image")
+      .addEventListener("click", this._handlePreviewPicture());
   }
 
   _handleLikeIcon() {
-    this._cardElement
+    this._element
       .querySelector(".card__like-button")
-      .toggle("card__like-button-active");
+      .classList.toggle("card__like-button-active");
     console.log("Like button has been pressed");
   }
 
   _handleDeleteCard() {
-    this._element.closest(".card").remove();
+    this._element.remove();
     console.log("Card has been deleted");
   }
 
-  _getTemplate() {
-    const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
+  _handlePreviewPicture() {
+    const imagePopUp = document.querySelector(".image-pop-up");
+    const imagePopUpImage = document.querySelector(".image-pop-up__image");
+    const imagePopUpTitle = document.querySelector(".image-pop-up__title");
 
-    return cardElement;
+    imagePopUpImage.src = this._link;
+    imagePopUpImage.alt = this._name;
+    imagePopUpTitle.textContent = this._name;
+
+    openModal(imagePopUp);
+  }
+
+  _getTemplate() {
+    return this._cardSelector.querySelector(".card").cloneNode(true);
   }
 
   getView() {
-    this._cardElement = this._getTemplate();
-    console.log(this._element);
-    this._cardLikeButton = this._element.querySelector(".card__like-button");
+    this._element = this._getTemplate();
     this._cardImage = this._element.querySelector(".card__image");
     this._addCardTitle = this._element.querySelector(".card__title");
+    this._cardLikeButton = this._element.querySelector(".card__like-button");
 
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
@@ -57,3 +65,5 @@ export default class Card {
     return this._element;
   }
 }
+
+export default Card;

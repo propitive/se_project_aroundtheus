@@ -63,20 +63,20 @@ const newItemCloseButton = document.querySelector(
 );
 
 const cardTitle = document.querySelector("#card__title");
-const cardSelector = document.querySelector("#card");
+const cardSelector = document.querySelector("#card").content;
+// const cardSelector = cardTemplate.querySelector(".card").cloneNode(true);
+
+//   const cardTemplate = document.querySelector("#card").content;
+//   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
 
 /* END: Elements  */
 
 /* START: Functions */
 
-function getCardView(cardData) {
-  const card = new Card(cardData, cardSelector, handleImageClick);
-  return card.getView();
-}
-
-function renderCard(cardElement, container) {
-  container.prepend(cardElement);
-}
+const renderCard = (cardData, wrapper) => {
+  const card = new Card(cardData, cardSelector);
+  wrapper.prepend(card.getView());
+};
 
 function handleImageClick() {
   cardData.open(imagePopUp);
@@ -86,6 +86,14 @@ function fillProfileForm() {
   inputName.value = profileName.textContent;
   inputDescription.value = profileSubtitle.textContent;
 }
+
+function deleteCardIcon(evt) {
+  evt.target.closest(".card").remove();
+}
+
+/* END: Functions */
+
+/* START: Event Handlers */
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -103,11 +111,7 @@ function handleCardFormSubmit(evt) {
   closeModal(newItemModal);
 }
 
-function deleteCardIcon(evt) {
-  evt.target.closest(".card").remove();
-}
-
-/* END: Functions */
+/* END: Event Handlers */
 
 /* START: Event Listener */
 
@@ -142,20 +146,16 @@ newItemModalForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = e.target.newItemTitle.value;
   const link = e.target.newItemImageLink.value;
-  const cardView = getCardView({ name, link });
-  renderCard(cardView, galleryCards);
+  renderCard({ name, link }, galleryCards);
   closeModal(newItemModal);
   newItemModalForm.reset();
 });
 
-initialCards.forEach((data) => {
-  const cardView = getCardView(data);
-  renderCard(cardView, galleryCards);
-});
-
-export { openModal };
+initialCards.forEach((data) => renderCard(data, galleryCards));
 
 /* END: Event Listener */
+
+export { openModal };
 
 // function createCard(data) {
 //   console.log(data);
