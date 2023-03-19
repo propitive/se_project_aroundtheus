@@ -100,17 +100,9 @@ const renderCard = (cardData, wrapper) => {
   wrapper.prepend(card.getView());
 };
 
-function handleImageClick() {
-  cardData.open(imagePopUp);
-}
-
 function fillProfileForm() {
   inputName.value = profileName.textContent;
   inputDescription.value = profileSubtitle.textContent;
-}
-
-function deleteCardIcon(evt) {
-  evt.target.closest(".card").remove();
 }
 
 function disableButton(button) {
@@ -127,15 +119,6 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = inputName.value;
   profileSubtitle.textContent = inputDescription.value;
   closeModal(profileModal);
-  console.log("Modal has been closed 2");
-}
-
-function handleCardFormSubmit(evt) {
-  evt.preventDefault();
-  cardTitle.textContent = newItemTitle.value;
-  imagePopUpImage.src = newItemImageLink;
-  imagePopUpImage.alt = newItemImageLink;
-  closeModal(newItemModal);
 }
 
 /* END: Event Handlers */
@@ -145,29 +128,24 @@ function handleCardFormSubmit(evt) {
 editButton.addEventListener("click", function () {
   fillProfileForm();
   openModal(profileModal);
-  console.log("Modal has been opened");
 });
 
 addButton.addEventListener("click", function () {
   openModal(newItemModal);
-  console.log("Modal has been opened 4");
 });
 
 profileModalCloseButton.addEventListener("click", function () {
   closeModal(profileModal);
-  console.log("Modal has been closed");
 });
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 newItemCloseButton.addEventListener("click", function () {
   closeModal(newItemModal);
-  console.log("Modal has been closed");
 });
 
 imagePopUpCloseIcon.addEventListener("click", function () {
   closeModal(imagePopUp);
-  console.log("Image pop up modal has been closed");
 });
 
 newItemModalForm.addEventListener("submit", (evt) => {
@@ -183,97 +161,3 @@ newItemModalForm.addEventListener("submit", (evt) => {
 initialCards.forEach((data) => renderCard(data, galleryCards));
 
 /* END: Event Listener */
-
-export { openModal };
-
-// function createCard(data) {
-//   console.log(data);
-//   const cardTemplate = document.querySelector("#card").content;
-//   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-
-//   const cardTitle = data.name;
-//   const cardImage = data.link;
-//   cardElement.querySelector(".card__image").src = cardImage;
-//   cardElement.querySelector(".card__image").alt = cardTitle;
-//   cardElement.querySelector(".card__title").textContent = cardTitle;
-
-//START: Adding the button's click function
-// const cardLikeButton = cardElement.querySelector(".card__like-button");
-// const cardLikeImage = cardElement.querySelector(".card__button");
-
-// cardLikeButton.addEventListener("click", function () {
-//   cardLikeButton.classList.toggle("card__like-button-active");
-//   console.log("Like button has been pressed");
-// });
-//END: Adding the button's click function
-
-//START: Adding the delete button's click function
-// const deleteButton = cardElement.querySelector(".card__delete-button");
-
-// deleteButton.addEventListener("click", function () {
-//   const listItem = deleteButton.closest(".card");
-//   listItem.remove();
-//   console.log("Card has been deleted");
-// });
-//END: Adding the delete button's click function
-
-//   function handleImagePopUp() {
-//     imagePopUpImage.src = cardImage;
-//     imagePopUpImage.alt = cardTitle;
-//     imagePopUpTitle.textContent = cardTitle;
-
-//     console.log(imagePopUpImage.src);
-//     console.log(imagePopUpImage.alt);
-//     console.log(imagePopUpTitle.textContent);
-
-//     openModal(imagePopUp);
-//   }
-
-//   const imageOnCard = cardElement.querySelector(".card__image");
-//   imageOnCard.addEventListener("click", handleImagePopUp);
-
-//   return cardElement;
-// }
-
-// function renderCard(data) {
-//   const card = createCard(data);
-//   galleryCards.prepend(card);
-// } LINE 74-76
-
-// function handleCardFormSubmit(evt) {
-//   evt.preventDefault();
-//   const newData = { name: newItemTitle.value, link: newItemImageLink.value };
-//   console.log(newData);
-//   newItemModalForm.reset();
-//   closeModal(newItemModal);
-//   galleryCards.prepend(createCard(newData));
-//   disableSubmitButton(newItemButton, {
-//     formSubmitInactive: "form__submit_inactive",
-//   });
-// } LINE 93-98
-
-// function openModal(modal) {
-//   modal.classList.add("modal__open");
-//   modal.addEventListener("mousedown", closeModalOnRemoteClick);
-//   document.addEventListener("keydown", keyHandler);
-// }
-
-// function closeModal(modal) {
-//   modal.classList.remove("modal__open");
-//   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-//   document.removeEventListener("keydown", keyHandler);
-// }
-
-// function closeModalOnRemoteClick(evt) {
-//   if (evt.target === evt.currentTarget) {
-//     closeModal(evt.target);
-//   }
-// }
-
-// function keyHandler(e) {
-//   if (e.key === "Escape") {
-//     console.log("ESCAPE");
-//     const openedModal = document.querySelector(".modal__open");
-//     closeModal(openedModal);
-//   }
-// }

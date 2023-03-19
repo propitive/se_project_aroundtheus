@@ -27,12 +27,10 @@ class Card {
     this._element
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button-active");
-    console.log("Like button has been pressed");
   }
 
   _handleDeleteCard() {
     this._element.remove();
-    console.log("Card has been deleted");
   }
 
   _handlePreviewPicture = () => {

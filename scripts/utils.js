@@ -18,7 +18,6 @@ export function closeModalOnRemoteClick(evt) {
 
 export function keyHandler(e) {
   if (e.key === "Escape") {
-    console.log("ESCAPE");
     const openedModal = document.querySelector(".modal__open");
     closeModal(openedModal);
   }
