@@ -1,3 +1,4 @@
+import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 import { openModal, closeModal } from "./utils.js";
 
@@ -64,12 +65,27 @@ const newItemCloseButton = document.querySelector(
 
 const cardTitle = document.querySelector("#card__title");
 const cardSelector = document.querySelector("#card").content;
-// const cardSelector = cardTemplate.querySelector(".card").cloneNode(true);
-
-//   const cardTemplate = document.querySelector("#card").content;
-//   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
 
 /* END: Elements  */
+
+/* START: Validation */
+
+const formConfig = {
+  formInputTypeError: "form__input_type_error",
+  formInputErrorActive: "form__input-error_active",
+  formInput: ".form__input",
+  formSubmit: ".form__submit",
+  formSubmitInactive: "form__submit_inactive",
+  form: ".form",
+};
+
+const editFormValidator = new FormValidator(formConfig, profileFormElement);
+const addFormValidator = new FormValidator(formConfig, newItemModalForm);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
+/* END: Validation */
 
 /* START: Functions */
 
@@ -89,6 +105,11 @@ function fillProfileForm() {
 
 function deleteCardIcon(evt) {
   evt.target.closest(".card").remove();
+}
+
+function disableButton(button) {
+  button.classList.add("form__submit_inactive");
+  button.disabled = true;
 }
 
 /* END: Functions */
@@ -150,6 +171,7 @@ newItemModalForm.addEventListener("submit", (evt) => {
   renderCard({ name, link }, galleryCards);
   closeModal(newItemModal);
   newItemModalForm.reset();
+  disableButton(newItemButton);
 });
 
 initialCards.forEach((data) => renderCard(data, galleryCards));
