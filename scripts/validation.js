@@ -14,16 +14,19 @@ const hideInputError = (formElement, inputElement, config) => {
 
 const toggleInputError = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage, config);
+    showInputError(
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      config
+    );
   } else {
     hideInputError(formElement, inputElement, config);
   }
 };
 
 const setEventListeners = (formElement, config) => {
-  const inputList = Array.from(
-    formElement.querySelectorAll(config.formInput)
-  );
+  const inputList = Array.from(formElement.querySelectorAll(config.formInput));
   const buttonElement = formElement.querySelector(config.formSubmit);
   toggleButtonState(inputList, buttonElement, config);
 
@@ -53,7 +56,7 @@ const formConfig = {
   formInput: ".form__input",
   formSubmit: ".form__submit",
   formSubmitInactive: "form__submit_inactive",
-  form: ".form",
+  formSelector: ".form",
 };
 
 enableValidation(formConfig);

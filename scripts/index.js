@@ -71,16 +71,22 @@ const cardSelector = document.querySelector("#card").content;
 /* START: Validation */
 
 const formConfig = {
-  formInputTypeError: "form__input_type_error",
-  formInputErrorActive: "form__input-error_active",
-  formInput: ".form__input",
-  formSubmit: ".form__submit",
-  formSubmitInactive: "form__submit_inactive",
-  form: ".form",
+  formInputTypeErrorClass: "form__input_type_error",
+  formInputErrorActiveClass: "form__input-error_active",
+  formInputSelector: ".form__input",
+  formSubmitSelector: ".form__submit",
+  formSubmitInactiveClass: "form__submit_inactive",
+  formSelector: ".form",
 };
 
-const editFormValidator = new FormValidator(formConfig, profileFormElement);
-const addFormValidator = new FormValidator(formConfig, newItemModalForm);
+const editFormValidator = new FormValidator(
+  formConfig,
+  document.querySelector(".modal__form")
+);
+const addFormValidator = new FormValidator(
+  formConfig,
+  document.querySelector(".new-item-modal__form")
+);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
