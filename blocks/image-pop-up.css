@@ -1,7 +1,6 @@
 .image-pop-up {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
@@ -11,6 +10,7 @@
   margin-top: 90px;
   position: relative;
   display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .image-pop-up__close-icon {
