@@ -10,23 +10,19 @@ class Card {
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => this._handleLikeIcon());
+    this._cardLikeButton.addEventListener("click", () =>
+      this._handleLikeIcon()
+    );
 
     this._element
       .querySelector(".card__delete-button")
       .addEventListener("click", () => this._handleDeleteCard());
 
-    this._element
-      .querySelector(".card__image")
-      .addEventListener("click", this._handlePreviewPicture);
+    this._cardImage.addEventListener("click", this._handlePreviewPicture);
   }
 
   _handleLikeIcon() {
-    this._element
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button-active");
+    this._cardLikeButton.classList.toggle("card__like-button-active");
   }
 
   _handleDeleteCard() {
