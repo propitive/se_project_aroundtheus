@@ -82,12 +82,15 @@
           <span class="edit-prof-desc-error form__input-error"></span>
           <button type="submit" class="form__submit modal__button">Save</button>
 
-          <img class="modal__close-icon" src="./images/Close Icon.svg" />
+          <img
+            class="modal__close-icon close-icon"
+            src="./images/Close Icon.svg"
+          />
         </form>
       </div>
     </div>
 
-    <div class="new-item-modal modal">
+    <div class="new-item-modal modal" id="new-item-modal">
       <div class="new-item-modal__container">
         <form class="form new-item-modal__form" novalidate>
           <h2 class="form-title new-item-modal__header">New place</h2>
@@ -114,7 +117,7 @@
           </button>
 
           <img
-            class="new-item-modal__close-icon"
+            class="new-item-modal__close-icon close-icon"
             src="./images/Close Icon.svg"
           />
         </form>
@@ -124,7 +127,10 @@
     <div class="image-pop-up modal" id="image-pop-up__container">
       <div class="image-pop-up__container-two">
         <img class="image-pop-up__image" src=" " alt=" " />
-        <img class="image-pop-up__close-icon" src="./images/Close Icon.svg" />
+        <img
+          class="image-pop-up__close-icon close-icon"
+          src="./images/Close Icon.svg"
+        />
         <h2 class="image-pop-up__title"></h2>
       </div>
     </div>
