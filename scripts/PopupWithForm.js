@@ -8,7 +8,42 @@ class PopupWithForm extends Popup {
   }
 
   close() {
-    this._popupForm.reset();
+    // modifies parent method
+    // reset the form when PopupWithForm is closed
+
     super.close();
+    this._popupForm.reset();
+  }
+
+  _getInputValues() {
+    // collects data from all the input fields
+    // returns the data as an object
+
+    // get all field elements
+    this._inputList = this._popupForm.querySelectorAll(".form__input");
+
+    // create an empty object
+    this._formValues = {};
+
+    // add the values of the fields to this object
+    this._inputList.forEach((input) => {
+      this._formValues[input.name] = input.value;
+    });
+
+    // return the values object
+    return this._formValues;
+  }
+
+  setEventListeners() {
+    // modifies parent method
+    // add the submit event handles to the form
+    // add the click event listener to the close icon
+
+    super.setEventListeners();
+    this._popupForm.addEventListener("submit", (evt) => {
+      if (this._popupForm.querySelector(".new-item-modal__form") === null) {
+      } else {
+      }
+    });
   }
 }

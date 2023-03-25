@@ -1,6 +1,6 @@
 // import { closeModal, closeModalOnRemoteClick, keyHandler } from "./utils";
 
-import { closeModal } from "./utils";
+// import { closeModal } from "./utils";
 
 export default class Popup {
   constructor({ popupSelector }) {
