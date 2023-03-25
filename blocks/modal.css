@@ -63,6 +63,9 @@
   cursor: pointer;
 }
 
+.modal__overlay {
+}
+
 /* START  -  One card per row */
 @media screen and (max-width: 778px) {
   .modal__container {

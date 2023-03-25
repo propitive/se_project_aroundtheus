@@ -105,11 +105,6 @@ function fillProfileForm() {
   inputDescription.value = profileSubtitle.textContent;
 }
 
-function disableButton(button) {
-  button.classList.add("form__submit_inactive");
-  button.disabled = true;
-}
-
 /* END: Functions */
 
 /* START: Event Handlers */
@@ -155,7 +150,6 @@ newItemModalForm.addEventListener("submit", (evt) => {
   renderCard({ name, link }, galleryCards);
   closeModal(newItemModal);
   newItemModalForm.reset();
-  disableButton(newItemButton);
 });
 
 initialCards.forEach((data) => renderCard(data, galleryCards));
