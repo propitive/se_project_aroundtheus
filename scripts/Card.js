@@ -1,12 +1,13 @@
 import { openModal } from "./utils.js";
 
 class Card {
-  constructor(data, cardSelector) {
+  constructor({ data, handleImageClick }, cardSelector) {
     this._name = data.name;
     this._link = data.link;
 
     this._data = data;
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
 
   _setEventListeners() {
@@ -18,7 +19,9 @@ class Card {
       .querySelector(".card__delete-button")
       .addEventListener("click", () => this._handleDeleteCard());
 
-    this._cardImage.addEventListener("click", this._handlePreviewPicture);
+    this._cardImage.addEventListener("click", () =>
+      this._handleImageClick({ link: this._link, name: this._name })
+    );
   }
 
   _handleLikeIcon() {
@@ -42,7 +45,12 @@ class Card {
   };
 
   _getTemplate() {
-    return this._cardSelector.querySelector(".card").cloneNode(true);
+    const cardTemplate = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
+
+    return cardTemplate;
   }
 
   getView() {

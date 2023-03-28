@@ -5,28 +5,29 @@
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
+    this._handleEscUp = this._handleEscUp.bind(this);
   }
 
   open() {
     // open popup
-    const modal = this._popupElement.querySelector(".modal");
+    console.log(this._popupElement);
 
-    modal.classList.add("modal__open");
-    modal.addEventListener("mousedown", this.setEventListeners);
-    document.addEventListener("keydown", this._handleEscClose);
+    this._popupElement.classList.add("modal__open");
+    this._popupElement.addEventListener("mousedown", this.setEventListeners);
+    document.addEventListener("keyup", this._handleEscUp);
   }
 
   close() {
     // closes popup
-    const modal = this._popupElement.querySelector(".modal");
-
-    modal.classList.remove("modal__open");
-    modal.removeEventListener("mousedown", this.setEventListeners);
-    document.removeEventListener("keydown", this._handleEscClose);
+    this._popupElement.classList.remove("modal__open");
+    this._popupElement.removeEventListener("mousedown", this.setEventListeners);
+    document.removeEventListener("keyup", this._handleEscUp);
   }
 
-  _handleEscClose(evt) {
+  _handleEscUp(evt) {
     // listens for esc button
+    evt.preventDefault();
+
     if (evt.key === "Escape") {
       this.close();
     }
@@ -34,15 +35,14 @@ export default class Popup {
 
   setEventListeners(evt) {
     // sets event listeners
-    const modal = this._popupElement.querySelector(".modal");
-    const modalCloseButton = modal.querySelector(".close-icon");
 
-    modalCloseButton.addEventListener("click", () => {
-      this.close();
+    this._popupElement.addEventListener("mousedown", (evt) => {
+      if (
+        evt.target.classList.contains("modal") ||
+        evt.target.classList.contains("close-icon")
+      ) {
+        this.close();
+      }
     });
-
-    if (evt.target === evt.currentTarget) {
-      this.close();
-    }
   }
 }
