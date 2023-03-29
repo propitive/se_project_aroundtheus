@@ -1,5 +1,7 @@
 // import { closeModal, closeModalOnRemoteClick, keyHandler } from "./utils";
 
+import { selectors } from "./constants.js";
+
 // import { closeModal } from "./utils";
 
 export default class Popup {
@@ -11,6 +13,7 @@ export default class Popup {
   open() {
     // open popup
     console.log(this._popupElement);
+    console.log(selectors.profileModal);
 
     this._popupElement.classList.add("modal__open");
     this._popupElement.addEventListener("mousedown", this.setEventListeners);
