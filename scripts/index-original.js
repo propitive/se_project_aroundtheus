@@ -147,7 +147,7 @@ newItemModalForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = newItemTitle.value;
   const link = newItemImageLink.value;
-  renderCard({ name, link }, galleryCards);
+  renderCard({ name, link });
   closeModal(newItemModal);
   newItemModalForm.reset();
 });

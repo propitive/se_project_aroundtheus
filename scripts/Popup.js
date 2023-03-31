@@ -1,8 +1,5 @@
-// import { closeModal, closeModalOnRemoteClick, keyHandler } from "./utils";
-
 import { selectors } from "./constants.js";
-
-// import { closeModal } from "./utils";
+import { closeModalOnRemoteClick, keyHandler } from "./utils.js";
 
 export default class Popup {
   constructor({ popupSelector }) {
@@ -12,9 +9,6 @@ export default class Popup {
 
   open() {
     // open popup
-    console.log(this._popupElement);
-    console.log(selectors.profileModal);
-
     this._popupElement.classList.add("modal__open");
     this._popupElement.addEventListener("mousedown", this.setEventListeners);
     document.addEventListener("keyup", this._handleEscUp);
@@ -36,9 +30,9 @@ export default class Popup {
     }
   }
 
-  setEventListeners(evt) {
+  setEventListeners = () => {
     // sets event listeners
-
+    console.log(this);
     this._popupElement.addEventListener("mousedown", (evt) => {
       if (
         evt.target.classList.contains("modal") ||
@@ -47,5 +41,5 @@ export default class Popup {
         this.close();
       }
     });
-  }
+  };
 }
