@@ -53,7 +53,7 @@ const editFormPopup = new PopupWithForm(
   submitEditProfile
 );
 
-const imagePopUp = new PopupWithImage("#card");
+const imagePopup = new PopupWithImage("#card");
 
 const addFormPopup = new PopupWithForm(selectors.newItemModal, submitAddCard);
 
@@ -90,8 +90,8 @@ function renderCard(initialCards) {
         imagePopup.open(image.name, image.link);
       },
     },
-    cardSelector
-  ).renderCard();
+    "#card"
+  ).getView();
 
   section.addItem(card);
 }
@@ -110,7 +110,7 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 editFormPopup.setEventListeners();
 addFormPopup.setEventListeners();
-imagePopUp.setEventListeners();
+imagePopup.setEventListeners();
 
 // all the rest
 

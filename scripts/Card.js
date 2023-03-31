@@ -53,6 +53,9 @@ export default class Card {
 
   getView() {
     this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector(".card__image");
+    this._cardLikeButton = this._element.querySelector(".card__like-button");
+
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__title").alt = this._name;
     this._element.querySelector(".card__image").textContent = this._name;
