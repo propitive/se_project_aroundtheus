@@ -30,5 +30,5 @@ export const selectors = {
   cardTemplate: ".card-template",
   previewPopup: ".image-pop-up",
   profileModal: ".profile-modal",
-  newItemModal: ".new-item-modal",
+  addCardModal: ".new-item-modal",
 };
