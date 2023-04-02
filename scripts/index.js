@@ -44,32 +44,33 @@ import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 
 // create instances of the classes
+
+const formConfig = {
+  formInputTypeErrorClass: "form__input_type_error",
+  formInputErrorActiveClass: "form__input-error_active",
+  formInputSelector: ".form__input",
+  formSubmitSelector: ".form__submit",
+  formSubmitInactiveClass: "form__submit_inactive",
+  formSelector: ".form",
+};
+
+const editFormValidator = new FormValidator(
+  formConfig,
+  document.querySelector(".modal__form")
+);
+const addFormValidator = new FormValidator(
+  formConfig,
+  document.querySelector(".new-item-modal__form")
+);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
 const CardPreviewPopup = new PopupWithImage({
   popupSelector: selectors.previewPopup,
 });
 
 CardPreviewPopup.setEventListeners();
-
-const CardSection = new Section(
-  {
-    renderer: (data) => {
-      const cardEl = new Card(
-        {
-          data,
-          handleImageClick: (imgData) => {
-            CardPreviewPopup.open(imgData);
-          },
-        },
-        selectors.cardTemplate
-      );
-      CardSection.addItem(cardEl.getView());
-    },
-    items: initialCards,
-  },
-  selectors.cardSection
-);
-
-CardSection.renderItems(initialCards);
 
 const EditUserProfileModal = new PopupWithForm({
   popupSelector: selectors.profileModal,
@@ -81,11 +82,34 @@ const EditUserProfileModal = new PopupWithForm({
 
 EditUserProfileModal.setEventListeners();
 
+const createCard = (item) => {
+  console.log(item);
+  const card = new Card(item, selectors.cardTemplate, (title, link) => {
+    CardPreviewPopup.open(title, link);
+  });
+
+  return card.getView();
+};
+
+const renderedCardItems = new Section(
+  {
+    renderer: (data) => {
+      console.log(data);
+      renderedCardItems.addItem(createCard(data));
+    },
+    items: initialCards,
+  },
+
+  selectors.cardSection
+);
+
+renderedCardItems.renderItems();
+
 const AddCardModal = new PopupWithForm({
   popupSelector: selectors.addCardModal,
-  handleFormSubmit: ({ name, description }) => {
-    inputName.value = name;
-    inputDescription.value = description;
+  handleFormSubmit: (data) => {
+    console.log(data);
+    renderedCardItems.addItem(createCard(data)); //THIS IS WHY THE BLACK BOX APPEARS
   },
 });
 
@@ -96,30 +120,10 @@ const userInfo = new UserInfo({
   descriptionSelector: ".profile-info__subtitle",
 });
 
-function handleProfileFormSubmit(data) {
-  const title = data.title;
-  const description = data.description;
-  userInfo.setUserInfo({
-    name: title,
-    description: description,
-  });
-  EditUserProfileModal.close();
-}
-
-function handleAddFormSubmit(inputValues) {
-  const card = {
-    name: inputValues.title,
-    link: inputValues.link,
-  };
-  addCardModal.close();
-}
-
 const fillUserForm = ({ name, description }) => {
   inputName.value = name;
   inputDescription.value = description;
 };
-
-// initialize all my instances
 
 editButton.addEventListener("click", function () {
   const info = userInfo.getUserInfo();
@@ -144,3 +148,58 @@ const EditUserProfileModal = new PopupWithForm({
   },
 });
 */
+
+// function handleProfileFormSubmit(data) {
+//   const title = data.title;
+//   const description = data.description;
+//   userInfo.setUserInfo({
+//     name: title,
+//     description: description,
+//   });
+//   EditUserProfileModal.close();
+// }
+
+// function handleAddFormSubmit(inputValues) {
+//   const card = {
+//     name: inputValues.title,
+//     link: inputValues.link,
+//   };
+//   addCardModal.close();
+// }
+
+// const AddCardModal = new PopupWithForm({
+//   popupSelector: selectors.addCardModal,
+//   handleFormSubmit: (data) => {
+//     const cardEl = new Card(
+//       {
+//         data,
+//         handleImageClick: (imgData) => {
+//           CardPreviewPopup.open(imgData);
+//         },
+//       },
+//       selectors.cardTemplate
+//     );
+//     CardSection.addItem(cardEl.getView());
+//   },
+// });
+
+// const CardSection = new Section(
+//   {
+//     renderer: (data) => {
+//       const cardEl = new Card(
+//         {
+//           data,
+//           handleImageClick: (imgData) => {
+//             CardPreviewPopup.open(imgData);
+//           },
+//         },
+//         selectors.cardTemplate
+//       );
+//       CardSection.addItem(cardEl.getView());
+//     },
+//     items: initialCards,
+//   },
+//   selectors.cardSection
+// );
+
+// CardSection.renderItems(initialCards);

@@ -18,6 +18,6 @@ export default class Section {
     // take the item and render it into this._element
 
     console.log(this._container);
-    this._container.append(element);
+    this._container.prepend(element);
   }
 }

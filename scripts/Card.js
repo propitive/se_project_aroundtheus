@@ -1,7 +1,7 @@
 import { openModal } from "./utils.js";
 
 class Card {
-  constructor({ data, handleImageClick }, cardSelector) {
+  constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
     this._link = data.link;
 
