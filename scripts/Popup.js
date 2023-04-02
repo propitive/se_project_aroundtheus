@@ -36,7 +36,7 @@ export default class Popup {
     }
   }
 
-  setEventListeners(evt) {
+  setEventListeners() {
     // sets event listeners
 
     this._popupElement.addEventListener("mousedown", (evt) => {
