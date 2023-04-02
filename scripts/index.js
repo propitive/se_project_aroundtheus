@@ -16,8 +16,8 @@ export const profileName = document.querySelector(".profile-info__name");
 export const profileSubtitle = document.querySelector(
   ".profile-info__subtitle"
 );
-const inputName = document.querySelector(".modal__name");
-const inputDescription = document.querySelector(".modal__description");
+export const inputName = document.querySelector(".modal__name");
+export const inputDescription = document.querySelector(".modal__description");
 
 const addButton = document.querySelector(".add-button");
 const newItemModal = document.querySelector(".new-item-modal");
@@ -73,18 +73,9 @@ CardSection.renderItems(initialCards);
 
 const EditUserProfileModal = new PopupWithForm({
   popupSelector: selectors.profileModal,
-  handleFormSubmit: (formData) => {
-    const cardEl = new Card(
-      {
-        data: formData,
-        handleImageClick: userInfo.setUserInfo({
-          name: inputName.value,
-          description: inputDescription.value,
-        }),
-      },
-      selectors.cardSection
-    );
-    CardSection.addItem(cardEl.getView());
+  handleFormSubmit: (info) => {
+    console.log(info);
+    userInfo.setUserInfo(info);
   },
 });
 
@@ -92,16 +83,17 @@ EditUserProfileModal.setEventListeners();
 
 const AddCardModal = new PopupWithForm({
   popupSelector: selectors.addCardModal,
-  handleFormSubmit: (data) => {
-    userInfo.setUserInfo(data);
+  handleFormSubmit: ({ name, description }) => {
+    inputName.value = name;
+    inputDescription.value = description;
   },
 });
 
 AddCardModal.setEventListeners();
 
 const userInfo = new UserInfo({
-  name: profileName,
-  description: profileSubtitle,
+  nameSelector: ".profile-info__name",
+  descriptionSelector: ".profile-info__subtitle",
 });
 
 function handleProfileFormSubmit(data) {
@@ -123,16 +115,17 @@ function handleAddFormSubmit(inputValues) {
 }
 
 const fillUserForm = ({ name, description }) => {
-  profileTitleInput.value = name;
-  profileDescriptionInput.value = description;
+  inputName.value = name;
+  inputDescription.value = description;
 };
 
 // initialize all my instances
 
 editButton.addEventListener("click", function () {
-  // const { name, description } = userInfo.getUserInfo();
-  // fillUserForm({ name, description });
-  // EditUserProfileModal.setInputValues(userInfo.getUserInfo());
+  const info = userInfo.getUserInfo();
+  EditUserProfileModal.setInputValues(info);
+  const { name, description } = userInfo.getUserInfo();
+  fillUserForm({ name, description });
   EditUserProfileModal.open();
 });
 

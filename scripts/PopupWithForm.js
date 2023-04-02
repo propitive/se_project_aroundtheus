@@ -1,3 +1,4 @@
+import { inputName, inputDescription } from "./index.js";
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
@@ -5,6 +6,7 @@ export default class PopupWithForm extends Popup {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".form");
     this._handleFormSubmit = handleFormSubmit;
+    this._inputList = this._popupForm.querySelectorAll(".form__input");
   }
 
   close() {
@@ -16,24 +18,10 @@ export default class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    // collects data from all the input fields
-    // returns the data as an object
-
-    // get all field elements
-    this._inputList = Array.from(
-      this._popupForm.querySelectorAll(".form__input")
-    );
-
-    // create an empty object
-    this._formValues = {};
-
-    // add the values of the fields to this object
-    this._inputList.forEach((input) => {
-      this._formValues[input.name] = input.value;
-    });
-
-    // return the values object
-    return this._formValues;
+    return {
+      name: inputName.value,
+      description: inputDescription.value,
+    };
   }
 
   setInputValues(data) {
@@ -52,6 +40,7 @@ export default class PopupWithForm extends Popup {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
       this._popupForm.reset();
+      this._popupElement.classList.remove("modal__open");
     });
   }
 }
