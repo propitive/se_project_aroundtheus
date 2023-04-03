@@ -1,4 +1,3 @@
-import { inputName, inputDescription } from "./index.js";
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
@@ -10,27 +9,16 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
-    // modifies parent method
-    // reset the form when PopupWithForm is closed
-
     super.close();
     this._popupForm.reset();
   }
 
   _getInputValues() {
-    // return {
-    //   name: inputName.value,
-    //   description: inputDescription.value,
-    // };
-
     this._formValues = {};
 
     this._inputList.forEach((input) => {
       this._formValues[input.name] = input.value;
-      console.log(input);
     });
-
-    console.log(this._formValues);
 
     return this._formValues;
   }
@@ -39,14 +27,9 @@ export default class PopupWithForm extends Popup {
     this._inputList.forEach((input) => {
       input.value = data[input.name];
     });
-    console.log(this._inputList);
   }
 
   setEventListeners() {
-    // modifies parent method
-    // add the submit event handles to the form
-    // add the click event listener to the close icon
-
     super.setEventListeners();
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
