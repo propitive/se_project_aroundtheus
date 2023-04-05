@@ -27,11 +27,11 @@ const addFormValidator = new FormValidator(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-const CardPreviewPopup = new PopupWithImage({
+const cardPreviewPopup = new PopupWithImage({
   popupSelector: selectors.previewPopup,
 });
 
-CardPreviewPopup.setEventListeners();
+cardPreviewPopup.setEventListeners();
 
 const EditUserProfileModal = new PopupWithForm({
   popupSelector: selectors.profileModal,
@@ -44,16 +44,16 @@ EditUserProfileModal.setEventListeners();
 
 const createCard = (item) => {
   const card = new Card(item, selectors.cardTemplate, ({ name, link }) => {
-    CardPreviewPopup.open({ name, link });
+    cardPreviewPopup.open({ name, link });
   });
 
   return card.getView();
 };
 
-const renderedCardItems = new Section(
+const cardSection = new Section(
   {
     renderer: (data) => {
-      renderedCardItems.addItem(createCard(data));
+      cardSection.addItem(createCard(data));
     },
     items: initialCards,
   },
@@ -61,12 +61,12 @@ const renderedCardItems = new Section(
   selectors.cardSection
 );
 
-renderedCardItems.renderItems();
+cardSection.renderItems();
 
 const AddCardModal = new PopupWithForm({
   popupSelector: selectors.addCardModal,
   handleFormSubmit: (data) => {
-    renderedCardItems.addItem(createCard(data));
+    cardSection.addItem(createCard(data));
   },
 });
 
@@ -77,19 +77,14 @@ const userInfo = new UserInfo({
   descriptionSelector: ".profile-info__subtitle",
 });
 
-const fillUserForm = ({ name, description }) => {
-  inputName.value = name;
-  inputDescription.value = description;
-};
-
 editButton.addEventListener("click", function () {
   const info = userInfo.getUserInfo();
   EditUserProfileModal.setInputValues(info);
-  const { name, description } = userInfo.getUserInfo();
-  fillUserForm({ name, description });
+  editFormValidator.resetValidation();
   EditUserProfileModal.open();
 });
 
 addButton.addEventListener("click", function () {
+  addFormValidator.resetValidation();
   AddCardModal.open();
 });

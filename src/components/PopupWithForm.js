@@ -14,13 +14,13 @@ export default class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    this._formValues = {};
+    const formValues = {};
 
     this._inputList.forEach((input) => {
-      this._formValues[input.name] = input.value;
+      formValues[input.name] = input.value;
     });
 
-    return this._formValues;
+    return formValues;
   }
 
   setInputValues(data) {
@@ -34,8 +34,7 @@ export default class PopupWithForm extends Popup {
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this._popupForm.reset();
-      this._popupElement.classList.remove("modal__open");
+      this.close();
     });
   }
 }
