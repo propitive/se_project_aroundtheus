@@ -33,14 +33,14 @@ const cardPreviewPopup = new PopupWithImage({
 
 cardPreviewPopup.setEventListeners();
 
-const EditUserProfileModal = new PopupWithForm({
+const editUserProfileModal = new PopupWithForm({
   popupSelector: selectors.profileModal,
   handleFormSubmit: (info) => {
     userInfo.setUserInfo(info);
   },
 });
 
-EditUserProfileModal.setEventListeners();
+editUserProfileModal.setEventListeners();
 
 const createCard = (item) => {
   const card = new Card(item, selectors.cardTemplate, ({ name, link }) => {
@@ -63,14 +63,14 @@ const cardSection = new Section(
 
 cardSection.renderItems();
 
-const AddCardModal = new PopupWithForm({
+const addCardModal = new PopupWithForm({
   popupSelector: selectors.addCardModal,
   handleFormSubmit: (data) => {
     cardSection.addItem(createCard(data));
   },
 });
 
-AddCardModal.setEventListeners();
+addCardModal.setEventListeners();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile-info__name",
@@ -79,12 +79,12 @@ const userInfo = new UserInfo({
 
 editButton.addEventListener("click", function () {
   const info = userInfo.getUserInfo();
-  EditUserProfileModal.setInputValues(info);
+  editUserProfileModal.setInputValues(info);
   editFormValidator.resetValidation();
-  EditUserProfileModal.open();
+  editUserProfileModal.open();
 });
 
 addButton.addEventListener("click", function () {
   addFormValidator.resetValidation();
-  AddCardModal.open();
+  addCardModal.open();
 });
