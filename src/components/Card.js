@@ -1,5 +1,3 @@
-import { openModal } from "./utils.js";
-
 class Card {
   constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
@@ -31,18 +29,6 @@ class Card {
   _handleDeleteCard() {
     this._element.remove();
   }
-
-  _handlePreviewPicture = () => {
-    const imagePopUp = document.querySelector(".image-pop-up");
-    const imagePopUpImage = document.querySelector(".image-pop-up__image");
-    const imagePopUpTitle = document.querySelector(".image-pop-up__title");
-
-    imagePopUpImage.src = this._link;
-    imagePopUpImage.alt = this._name;
-    imagePopUpTitle.textContent = this._name;
-
-    openModal(imagePopUp);
-  };
 
   _getTemplate() {
     const cardTemplate = document
