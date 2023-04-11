@@ -14,6 +14,17 @@ import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/api.js";
+
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-12",
+  headers: {
+    authorization: "bc327ce1-4668-42e6-9a70-be158cef63f8",
+    "Content-Type": "application/json",
+  },
+});
+
+console.log(api);
 
 const editFormValidator = new FormValidator(
   formConfig,
