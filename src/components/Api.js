@@ -7,21 +7,17 @@ export default class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-      });
+    });
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._headers,
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-      });
+    });
+  }
+
+  getAPIInfo() {
+    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 }

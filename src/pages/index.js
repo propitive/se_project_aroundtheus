@@ -24,8 +24,6 @@ const api = new Api({
   },
 });
 
-console.log(api);
-
 const editFormValidator = new FormValidator(
   formConfig,
   document.querySelector(".modal__form")
