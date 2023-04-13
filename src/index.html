@@ -26,6 +26,13 @@
           alt="Profile picture of Jacques Cousteau"
           class="profile__avatar"
         />
+        <div class="profile__avatar-edit-container">
+          <img
+            src="<%=require('./images/edit-button.svg')%>"
+            class="profile-info__avatar-hover-image"
+            alt="Edit button"
+          />
+        </div>
         <div class="profile-info">
           <div class="profile-info__container">
             <h1 class="profile-info__name">Jacques Cousteau</h1>
@@ -139,12 +146,55 @@
       </div>
     </div>
 
+    <div class="confirm-popup modal">
+      <div class="modal__overlay confirm-popup__container-two">
+        <form class="form confirm-popup__form">
+          <h2 class="confirm-popup__title">Are you sure?</h2>
+          <button type="submit" class="form__submit confirm-popup__button">
+            Yes
+          </button>
+
+          <img
+            class="close-icon confirm-popup__close-icon"
+            src="<%=require('./images/Close Icon.svg')%>"
+          />
+        </form>
+      </div>
+    </div>
+
+    <div class="change-avatar-form modal">
+      <div class="modal__overlay change-avatar-form__container">
+        <form class="form change-avatar-form__form" novalidate>
+          <h2 class="change-avatar-form__title">Change profile picture</h2>
+          <input
+            id="change-avatar-form__link"
+            type="url"
+            class="change-avatar-form__link form__input"
+            name="link"
+            placeholder="Image link"
+            required
+          />
+          <button type="submit" class="form__submit change-avatar-form__button">
+            Save
+          </button>
+
+          <img
+            class="close-icon change-avatar-form__close-icon"
+            src="<%=require('./images/Close Icon.svg')%>"
+          />
+        </form>
+      </div>
+    </div>
+
     <template class="card-template" id="card">
       <li class="card">
         <img class="card__image" src=" " alt=" " />
         <div class="card__description">
           <h2 class="card__title" id="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
+          <div class="card__button-and-counter">
+            <button class="card__like-button" type="button"></button>
+            <h3 class="card__counter">1</h3>
+          </div>
         </div>
         <button class="card__delete-button" type="button"></button>
       </li>
