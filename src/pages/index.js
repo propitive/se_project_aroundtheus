@@ -14,6 +14,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/api.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation";
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -133,6 +134,9 @@ const avatarPopup = new PopupWithForm({
 });
 
 avatarPopup.setEventListeners();
+
+const deleteCardPopup = new PopupWithConfirmation(".confirm-popup");
+deleteCardPopup.setEventListeners();
 
 editButton.addEventListener("click", function () {
   const info = userInfo.getUserInfo();
