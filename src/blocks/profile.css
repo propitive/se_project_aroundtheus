@@ -41,6 +41,15 @@
   opacity: 0.6;
 }
 
+.profile-info__avatar-hover-button {
+  border: 0;
+  padding: 0;
+  width: 26px;
+  height: 26px;
+  margin: auto;
+  background: transparent;
+}
+
 .profile-info__avatar-hover-image {
   background: transparent url(../images/edit-button.svg) center no-repeat;
   margin: auto;
@@ -52,7 +61,7 @@
   border: none;
   transition: ease-in-out 0.3s;
   background-color: rgba(0, 0, 0, 0.825);
-  opacity: 0.6;
+  opacity: 1;
   cursor: pointer;
 }
 

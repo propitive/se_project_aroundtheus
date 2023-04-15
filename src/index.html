@@ -27,11 +27,17 @@
           class="profile__avatar"
         />
         <div class="profile__avatar-edit-container">
-          <img
-            src="<%=require('./images/edit-button.svg')%>"
-            class="profile-info__avatar-hover-image"
-            alt="Edit button"
-          />
+          <button
+            class="profile-info__avatar-hover-button"
+            type="button"
+            id="profile-info__avatar-hover-button"
+          >
+            <img
+              src="<%=require('./images/edit-button.svg')%>"
+              class="profile-info__avatar-hover-image"
+              alt="Edit button"
+            />
+          </button>
         </div>
         <div class="profile-info">
           <div class="profile-info__container">

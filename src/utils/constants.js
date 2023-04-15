@@ -9,6 +9,10 @@ export const inputDescription = document.querySelector(".modal__description");
 
 export const addButton = document.querySelector(".add-button");
 
+export const avatarButton = document.querySelector(
+  ".profile-info__avatar-hover-button"
+);
+
 export const initialCards = [
   {
     name: "Yosemite Valley",
@@ -42,6 +46,7 @@ export const selectors = {
   previewPopup: ".image-pop-up",
   profileModal: ".profile-modal",
   addCardModal: ".new-item-modal",
+  changeAvatarForm: ".change-avatar-form",
 };
 
 export const formConfig = {

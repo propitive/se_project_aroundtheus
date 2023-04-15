@@ -4,9 +4,8 @@ import {
   selectors,
   formConfig,
   editButton,
-  inputName,
-  inputDescription,
   addButton,
+  avatarButton,
 } from "../utils/constants";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -42,14 +41,35 @@ const cardPreviewPopup = new PopupWithImage({
 
 cardPreviewPopup.setEventListeners();
 
-const editUserProfileModal = new PopupWithForm({
+const editUserProfileModalNew = new PopupWithForm({
   popupSelector: selectors.profileModal,
-  handleFormSubmit: (info) => {
-    userInfo.setUserInfo(info);
+  handleFormSubmit: (values) => {
+    editUserProfileModalNew.renderLoading(true);
+    api
+      .updateProfileInfo(values)
+      .then((data) => {
+        userInfo.setUserInfo(data);
+        editUserProfileModalNew.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        editUserProfileModalNew.renderLoading(false, "Save");
+      });
   },
 });
 
-editUserProfileModal.setEventListeners();
+editUserProfileModalNew.setEventListeners();
+
+// const editUserProfileModal = new PopupWithForm({
+//   popupSelector: selectors.profileModal,
+//   handleFormSubmit: (info) => {
+//     userInfo.setUserInfo(info);
+//   },
+// });
+
+// editUserProfileModal.setEventListeners();
 
 const createCard = (item) => {
   const card = new Card(item, selectors.cardTemplate, ({ name, link }) => {
@@ -84,13 +104,43 @@ addCardModal.setEventListeners();
 const userInfo = new UserInfo({
   nameSelector: ".profile-info__name",
   descriptionSelector: ".profile-info__subtitle",
+  userAvatar: ".profile__avatar",
 });
+
+window.onload = () => {
+  avatarButton.setEventListeners("click", function () {
+    avatarPopup.open();
+  });
+};
+
+const avatarPopup = new PopupWithForm({
+  popupSelector: selectors.changeAvatarForm,
+  handleFormSubmit: (values) => {
+    avatarPopup.renderLoading(true);
+    api
+      .updateProfileAvatar(values.avatar)
+      .then((data) => {
+        userInfo.setAvatar(data);
+        avatarPopup.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        avatarPopup.renderLoading(false, "save");
+      });
+  },
+});
+
+avatarPopup.setEventListeners();
 
 editButton.addEventListener("click", function () {
   const info = userInfo.getUserInfo();
-  editUserProfileModal.setInputValues(info);
+  // editUserProfileModal.setInputValues(info);
   editFormValidator.resetValidation();
-  editUserProfileModal.open();
+  // editUserProfileModal.open();
+  editUserProfileModalNew.setInputValues(info);
+  editUserProfileModalNew.open();
 });
 
 addButton.addEventListener("click", function () {
