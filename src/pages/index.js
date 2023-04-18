@@ -122,8 +122,6 @@ function createCard(cardData) {
 }
 
 api.getAPIInfo().then(([userData, userCards]) => {
-  console.log(userData);
-  console.log(userCards);
   userId = userData._id;
   userInfo.setUserInfo(userData);
   userInfo.setAvatar(userData.avatar);

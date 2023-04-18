@@ -10,7 +10,7 @@ export const inputDescription = document.querySelector(".modal__description");
 export const addButton = document.querySelector(".add-button");
 
 export const avatarButton = document.querySelector(
-  ".profile-info__avatar-hover-button"
+  ".profile__avatar-hover-button"
 );
 
 export const selectors = {
