@@ -36,11 +36,13 @@ const addFormValidator = new FormValidator(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-const cardPreviewPopup = new PopupWithImage({
-  popupSelector: selectors.previewPopup,
-});
+function handleImageClick(name, link) {
+  imagePopup.open(name, link);
+}
 
-cardPreviewPopup.setEventListeners();
+const imagePopup = new PopupWithImage(selectors.previewPopup, handleImageClick);
+
+imagePopup.setEventListeners();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile-info__name",
@@ -89,7 +91,7 @@ function createCard(cardData) {
     userId,
     selectors.cardTemplate,
     (cardName, cardLink) => {
-      cardPreviewPopup.open(cardName, cardLink);
+      imagePopup.open(cardName, cardLink);
     },
 
     (cardId) => {
