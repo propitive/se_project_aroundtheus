@@ -15,6 +15,8 @@ import UserInfo from "../components/UserInfo.js";
 import Api from "../components/api.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation";
 
+//API
+
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
