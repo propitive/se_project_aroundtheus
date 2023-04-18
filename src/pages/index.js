@@ -32,8 +32,14 @@ const addFormValidator = new FormValidator(
   document.querySelector(".new-item-modal__form")
 );
 
+const avatarFormValidation = new FormValidator(
+  formConfig,
+  document.querySelector(".change-avatar-form__form")
+);
+
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+avatarFormValidation.enableValidation();
 
 function handleImageClick(name, link) {
   imagePopup.open(name, link);
@@ -88,11 +94,16 @@ function createCard(cardData) {
       deleteCardPopup.open();
       deleteCardPopup.setSubmitAction(() => {
         deleteCardPopup.renderLoading(true);
-        api.deleteUserCard(cardId).then(() => {
-          card.deleteCard();
-          deleteCardPopup.renderLoading(false);
-          deleteCardPopup.close();
-        });
+        api
+          .deleteUserCard(cardId)
+          .then(() => {
+            card.deleteCard();
+            deleteCardPopup.renderLoading(false);
+            deleteCardPopup.close();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       });
     },
 
@@ -121,22 +132,27 @@ function createCard(cardData) {
   return card;
 }
 
-api.getAPIInfo().then(([userData, userCards]) => {
-  userId = userData._id;
-  userInfo.setUserInfo(userData);
-  userInfo.setAvatar(userData.avatar);
-  cardSection = new Section(
-    {
-      items: userCards,
-      renderer: (cardData) => {
-        const newCard = createCard(cardData);
-        cardSection.addItem(newCard.getView());
+api
+  .getAPIInfo()
+  .then(([userData, userCards]) => {
+    userId = userData._id;
+    userInfo.setUserInfo(userData);
+    userInfo.setAvatar(userData.avatar);
+    cardSection = new Section(
+      {
+        items: userCards,
+        renderer: (cardData) => {
+          const newCard = createCard(cardData);
+          cardSection.addItem(newCard.getView());
+        },
       },
-    },
-    selectors.cardSection
-  );
-  cardSection.renderItems();
-});
+      selectors.cardSection
+    );
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const addCardPopup = new PopupWithForm({
   popupSelector: selectors.addCardModal,

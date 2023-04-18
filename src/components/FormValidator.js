@@ -29,6 +29,7 @@ class FormValidator {
     );
 
     inputElement.classList.add(this._inputErrorClass);
+    console.log(errorMessageElement);
     errorMessageElement.textContent = inputElement.validationMessage;
     errorMessageElement.classList.add(this._errorClass);
   }
