@@ -1,6 +1,5 @@
 import "./index.css";
 import {
-  initialCards,
   selectors,
   formConfig,
   editButton,
@@ -76,15 +75,6 @@ const editUserProfileModalNew = new PopupWithForm({
 
 editUserProfileModalNew.setEventListeners();
 
-// const editUserProfileModal = new PopupWithForm({
-//   popupSelector: selectors.profileModal,
-//   handleFormSubmit: (info) => {
-//     userInfo.setUserInfo(info);
-//   },
-// });
-
-// editUserProfileModal.setEventListeners();
-
 function createCard(cardData) {
   const card = new Card(
     cardData,
@@ -150,27 +140,6 @@ api.getAPIInfo().then(([userData, userCards]) => {
   cardSection.renderItems();
 });
 
-// const createCard = (item) => {
-//   const card = new Card(item, selectors.cardTemplate, ({ name, link }) => {
-//     cardPreviewPopup.open({ name, link });
-//   });
-
-//   return card.getView();
-// };
-
-// const cardSection = new Section(
-//   {
-//     renderer: (data) => {
-//       cardSection.addItem(createCard(data));
-//     },
-//     items: initialCards,
-//   },
-
-//   selectors.cardSection
-// );
-
-// cardSection.renderItems();
-
 const addCardPopup = new PopupWithForm({
   popupSelector: selectors.addCardModal,
   handleFormSubmit: (values) => {
@@ -192,15 +161,6 @@ const addCardPopup = new PopupWithForm({
 });
 
 addCardPopup.setEventListeners();
-
-// const addCardModal = new PopupWithForm({
-//   popupSelector: selectors.addCardModal,
-//   handleFormSubmit: (data) => {
-//     cardSection.addItem(createCard(data));
-//   },
-// });
-
-// addCardModal.setEventListeners();
 
 avatarButton.addEventListener("click", function () {
   avatarPopup.open();
@@ -229,9 +189,7 @@ avatarPopup.setEventListeners();
 
 editButton.addEventListener("click", function () {
   const info = userInfo.getUserInfo();
-  // editUserProfileModal.setInputValues(info);
   editFormValidator.resetValidation();
-  // editUserProfileModal.open();
   editUserProfileModalNew.setInputValues(info);
   editUserProfileModalNew.open();
 });
