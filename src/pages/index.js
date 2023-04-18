@@ -55,6 +55,8 @@ const userInfo = new UserInfo({
   userAvatar: ".profile__avatar",
 });
 
+console.log(document.querySelector(".profile-info__subtitle").textContent);
+
 const deleteCardPopup = new PopupWithConfirmation(".confirm-popup");
 deleteCardPopup.setEventListeners();
 let cardSection;
@@ -67,6 +69,7 @@ const editUserProfileModalNew = new PopupWithForm({
     api
       .updateProfileInfo(values)
       .then((data) => {
+        console.log(data);
         userInfo.setUserInfo(data);
         editUserProfileModalNew.close();
       })
@@ -135,6 +138,7 @@ function createCard(cardData) {
 api
   .getAPIInfo()
   .then(([userData, userCards]) => {
+    console.log(userData);
     userId = userData._id;
     userInfo.setUserInfo(userData);
     userInfo.setAvatar(userData.avatar);
@@ -183,11 +187,12 @@ avatarButton.addEventListener("click", function () {
 const avatarPopup = new PopupWithForm({
   popupSelector: selectors.changeAvatarForm,
   handleFormSubmit: (values) => {
+    console.log(values);
     avatarPopup.renderLoading(true);
     api
       .updateProfileAvatar(values.avatar)
       .then((data) => {
-        userInfo.setAvatar(data);
+        userInfo.setAvatar(data.avatar);
         avatarPopup.close();
       })
       .catch((err) => {

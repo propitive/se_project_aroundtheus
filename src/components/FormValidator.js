@@ -28,8 +28,10 @@ class FormValidator {
       `.${inputElement.id}-error`
     );
 
+    console.log(inputElement);
+    console.log(inputElement.id);
+    console.log(this._form);
     inputElement.classList.add(this._inputErrorClass);
-    console.log(errorMessageElement);
     errorMessageElement.textContent = inputElement.validationMessage;
     errorMessageElement.classList.add(this._errorClass);
   }
