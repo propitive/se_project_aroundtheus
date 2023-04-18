@@ -119,9 +119,9 @@ export default class Card {
   renderLikes() {
     this._cardLikes.textContent = this._likes.length;
     if (this.isLiked()) {
-      this._likeButton.classList.add("card__like-button_active");
+      this._likeButton.classList.add("card__like-button-active");
     } else {
-      this._likeButton.classList.remove("card__like-button_active");
+      this._likeButton.classList.remove("card__like-button-active");
     }
   }
 

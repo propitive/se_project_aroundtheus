@@ -24,9 +24,6 @@ const api = new Api({
   },
 });
 
-console.log(api.baseUrl);
-console.log(api.headers);
-
 const editFormValidator = new FormValidator(
   formConfig,
   document.querySelector(".modal__form")
@@ -111,8 +108,8 @@ function createCard(cardData) {
       if (card.isLiked()) {
         api
           .removeCardLikes(cardId)
-          .then((data) => {
-            card.updateLikes(data.likes);
+          .then((res) => {
+            card.updateLikes(res.likes);
           })
           .catch((err) => {
             console.log(err);
@@ -120,8 +117,8 @@ function createCard(cardData) {
       } else {
         api
           .addCardLikes(cardId)
-          .then((data) => {
-            card.updateLikes(data.likes);
+          .then((res) => {
+            card.updateLikes(res.likes);
           })
           .catch((err) => {
             console.log(err);
@@ -192,6 +189,8 @@ const addCardPopup = new PopupWithForm({
   },
 });
 
+addCardPopup.setEventListeners();
+
 // const addCardModal = new PopupWithForm({
 //   popupSelector: selectors.addCardModal,
 //   handleFormSubmit: (data) => {
@@ -201,11 +200,9 @@ const addCardPopup = new PopupWithForm({
 
 // addCardModal.setEventListeners();
 
-window.onload = () => {
-  avatarButton.addEventListener("click", function () {
-    avatarPopup.open();
-  });
-};
+avatarButton.addEventListener("click", function () {
+  avatarPopup.open();
+});
 
 const avatarPopup = new PopupWithForm({
   popupSelector: selectors.changeAvatarForm,
