@@ -101,11 +101,13 @@ function createCard(cardData) {
           .deleteUserCard(cardId)
           .then(() => {
             card.deleteCard();
-            deleteCardPopup.renderLoading(false);
             deleteCardPopup.close();
           })
           .catch((err) => {
             console.log(err);
+          })
+          .finally(() => {
+            deleteCardPopup.renderLoading(false);
           });
       });
     },
@@ -181,6 +183,7 @@ const addCardPopup = new PopupWithForm({
 addCardPopup.setEventListeners();
 
 avatarButton.addEventListener("click", function () {
+  avatarFormValidation.resetValidation();
   avatarPopup.open();
 });
 
