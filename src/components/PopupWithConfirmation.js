@@ -11,7 +11,7 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   setSubmitAction(action) {
-    this._handleSubmit = action;
+    this._handleConfirm = action;
   }
 
   renderLoading(isLoading) {
@@ -24,7 +24,7 @@ export default class PopupWithConfirmation extends Popup {
 
   _handleSubmit = (e) => {
     e.preventDefault();
-    this._handleSubmit();
+    this._handleConfirm();
   };
 
   setEventListeners() {
