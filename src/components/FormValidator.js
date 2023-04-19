@@ -56,10 +56,10 @@ class FormValidator {
     }
   }
 
-  _disableButton() {
-    this._submitButton.disabled = true;
-    this._submitButton.classList.add(this._inactiveButtonClass);
-  }
+  // _disableButton() {
+  //   this._submitButton.disabled = true;
+  //   this._submitButton.classList.add(this._inactiveButtonClass);
+  // }
 
   _hasInvalidInput() {
     return this._inputElements.some(
